@@ -2298,9 +2298,9 @@ UICorner_33.CornerRadius = UDim.new(0, 2)
 local draggingg
 local SliderButtonStartt
 local SliderButtonInputt
-local slide = SliderButtonn
+local slidee = SliderButtonn
 
-local function slide(input)
+local function slidee(input)
  local slidein = UDim2.new(math.clamp((input.Position.X - SliderButtonn.AbsolutePosition.X) / SliderButtonn.AbsoluteSize.X, 0, 1), 0, 0, 0)
  SliderCountt:TweenPosition(slidein, Enum.EasingDirection.InOut, Enum.EasingStyle.Linear, 0.08, true)
  Title_22:TweenPosition(slidein, Enum.EasingDirection.InOut, Enum.EasingStyle.Linear, 0.12, true)
@@ -2312,7 +2312,7 @@ end
 
 SliderButtonn.InputBegan:Connect(function(input)
  if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-dragging = true
+draggingg = true
 SliderButtonInputt = input
 SliderButtonStartt = input.Position.X
 slidein = SliderButtonn.AbsolutePosition.X
@@ -2324,14 +2324,14 @@ game.TweenService:Create(SliderStrokee, TweenInfo.new(0.08, Enum.EasingStyle.Lin
  end
  input.Changed:Connect(function(input)
 if input.UserInputType == Enum.UserInputState.End then
-dragging = false
+draggingG = false
 
 end
  end)
 end)
 SliderButtonn.InputEnded:Connect(function(input)
  if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-dragging = false
+draggingg = false
 SliderButtonInputt = input
 game.TweenService:Create(SliderCountt, TweenInfo.new(0.08, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {BackgroundTransparency = 0.3, Size = UDim2.new(0, 18, 0, 18)}):Play()
 game.TweenService:Create(Title_22, TweenInfo.new(0.12, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut), {AnchorPoint = Vector2.new(0, 0), TextSize = 8.000, BackgroundTransparency = 1.000, Size = UDim2.new(0, 18, 0, 18)}):Play()
@@ -2341,8 +2341,8 @@ game.TweenService:Create(SliderStrokee, TweenInfo.new(0.08, Enum.EasingStyle.Lin
  end
 end)
 UserInputService.InputChanged:Connect(function(input)
- if input == SliderButtonInputt and dragging then
-slide(input)
+ if input == SliderButtonInputt and draggingg then
+slidee(input)
  end
 end)
 
@@ -3245,26 +3245,13 @@ end)
     --
     Main:AddSeperatorRight("Settings")
     
-    Time = Main:AddLabelLeft("Server Time")
+     Main:AddSeperatorLeft("Info")
+    Main:AddLabelLeft("Wecome To Auti Hub Script")
+    Main:AddLabelLeft("Map : King Legazy")
+    Date = os.date("%d".." ".."%B".." ".."%Y")
+    Main:AddLabelLeft("Day : "..Date)
     
-    function UpdateTime()
-        local GameTime = math.floor(workspace.DistributedGameTime+0.5)
-        local Hour = math.floor(GameTime/(60^2))%24
-        local Minute = math.floor(GameTime/(60^1))%60
-        local Second = math.floor(GameTime/(60^0))%60
-        Time:Set("Hr(s) : "..Hour.." Min(s) : "..Minute.." Sec(s) : "..Second)
-    end
-    
-    spawn(function()
-        while task.wait() do
-            pcall(function()
-                UpdateTime()
-                if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("TopbarPlus") then
-                    game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("TopbarPlus").Enabled = false
-                end
-            end)
-        end
-    end)
+   
     
     Main:AddDropdownRight("Select Method",{"Behind","Below","Upper"},function(value)
         _G.Method = value
@@ -3286,8 +3273,8 @@ end)
         end
     end)
     
-    _G.DistanceMob = 2
-    Main:AddSliderRight("Distance",1,100,2,function(value)
+    _G.DistanceMob = 10
+    Main:AddSliderRight("Distance",1,100,10,function(value)
         _G.DistanceMob = value
     end)
     
@@ -3392,98 +3379,6 @@ end;
         StopNoClip(_G.AutoFarm)
     end)
     
-    spawn(function()
-        while wait() do
-            if _G.AutoFarm then
-                pcall(function()
-               
-                    if game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.Visible == false then
-                        if not game:GetService("Workspace").AntiTPNPC:FindFirstChild("QuestLvl"..CheckQuest()) then
-                            TP(game:GetService("ReplicatedStorage").MAP["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,0,0))
-                        else 
-                            TP(game:GetService("Workspace").AntiTPNPC["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,0,0))
-                        end
-                        game:GetService'VirtualUser':Button1Down(Vector2.new(1,1));
-					game:GetService'VirtualUser':Button1Up(Vector2.new(1,1));
-                        for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
-                            if v.Name == "Dialogue" then
-                                v.Accept.Size = UDim2.new(0, 10000, 0, 10000)
-                                v.Accept.Position = UDim2.new(-2, 0, -5, 0)
-                                v.Accept.ImageTransparency = 1
-                                game:GetService("ReplicatedStorage").Remotes.Functions.CheckQuest:InvokeServer()
-                            end
-                        end
-                    elseif game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.Visible == true then
-                        Mobs = string.sub(game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.QuestCount.Text,5,#game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.QuestCount.Text);
-                        if game:GetService("Workspace").Monster.Mon:FindFirstChild(Mobs) then
-                            for i,v in pairs(game:GetService("Workspace").Monster.Mon:GetChildren()) do
-                                if v.Name == Mobs and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                        repeat task.wait()
-                                            AutoHaki()
-                                            EquipWeapon(_G.SelectWeapon)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-                                            TP(v.HumanoidRootPart.CFrame * MethodFarm)
-                                            if _G.AutoSkill then 
-                                                UseSkill("Z")
-                                                UseSkill("X")
-                                                UseSkill("C")
-                                                UseSkill("V")
-                                            end
-                                        until not v.Parent or v.Humanoid.Health <= 0 or _G.AutoFarm == false or game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.Visible == false
-                                    else
-
-                                            if not game:GetService("Workspace").AntiTPNPC:FindFirstChild("QuestLvl"..CheckQuest()) then
-                                                TP(game:GetService("ReplicatedStorage").MAP["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                            else 
-                                                TP(game:GetService("Workspace").AntiTPNPC["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                            end
-                                        end
-                                    end
-                                end
-                            
-                        elseif game:GetService("Workspace").Monster.Boss:FindFirstChild(Mobs) then
-                            for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
-                                if v.Name == Mobs and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                        repeat task.wait()
-                                            AutoHaki()
-                                            EquipWeapon(_G.SelectWeapon)
-                                            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
-                                            TP(v.HumanoidRootPart.CFrame * MethodFarm)
-                                            if _G.AutoSkill then 
-                                                UseSkill("Z")
-                                                UseSkill("X")
-                                                UseSkill("C")
-                                                UseSkill("V")
-                                            end
-                                        until not v.Parent or v.Humanoid.Health <= 0 or _G.AutoFarm == false or game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.Visible == false
-                                    else
-                                       
-                                            if not game:GetService("Workspace").AntiTPNPC:FindFirstChild("QuestLvl"..CheckQuest()) then
-                                                TP(game:GetService("ReplicatedStorage").MAP["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                            else 
-                                                TP(game:GetService("Workspace").AntiTPNPC["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                            
-                                        end
-                                    end
-                                end
-                            
-                        else 
-                         
-                                if not game:GetService("Workspace").AntiTPNPC:FindFirstChild("QuestLvl"..CheckQuest()) then
-                                    TP(game:GetService("ReplicatedStorage").MAP["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                else 
-                                    TP(game:GetService("Workspace").AntiTPNPC["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                
-                            
-                        end
-                    end
-                end)
-            end
-        end
-    end)
     
     spawn(function()
 	while wait() do
@@ -3540,7 +3435,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
 	end;
 end
 );
-    
+    if First_Sea then
     Main:AddToggleLeft("Auto Second Sea fIX",_G.AutoSecondSea,function(value)
         _G.AutoSecondSea = value
     end)
@@ -3622,7 +3517,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
             end)
         end
     end)
-    
+    end
+    if Second_Sea then
     Main:AddSeperatorLeft("Sea King")
     
     
@@ -3706,6 +3602,85 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
 
+Main:AddSeperatorLeft("Hydra")
+    
+    
+  Hydra = Main:AddLabelLeft("")
+  
+
+             function iopu()
+    		if game:GetService("Workspace").SeaMonster:FindFirstChild("HydraSeaKing") then
+              Hydra:Set("Hydra : 🟢")   
+                else
+                    Hydra:Set("Hydra : 🔴")    
+                end
+                end
+
+         spawn(function()
+        while task.wait() do
+            pcall(function()
+                iopu()
+            end)
+        end
+         end)
+
+Main:AddToggleLeft("Auto Hydra",_G.AutoSeaking,function(value)
+        _G.AutoHydra = value
+        StopNoClip(_G.AutoSeaking)
+    end)
+    
+    Main:AddToggleLeft("Auto Hydra Hop",_G.AutoSeaking_Hop,function(value)
+        _G.AutoHydra_Hop = value
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.AutoHydra then
+                pcall(function()
+                    for i,v in pairs(game:GetService("Workspace").SeaMonster:GetChildren()) do
+                        if game:GetService("Workspace").SeaMonster:FindFirstChild("HydraSeaKing") and v.Humanoid.Health > 0 then
+                            if v.Name == "HydraSeaKing" then
+                                repeat task.wait()
+                                    AutoHaki()
+                                    EquipWeapon(_G.SelectWeapon)
+                                    TP(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(90), 0, 0) - Vector3.new(0,25,0))
+                                    if _G.AutoSkill then 
+                                        UseSkill("Z")
+                                        UseSkill("X")
+                                        UseSkill("C")
+                                        UseSkill("V")
+                                    end
+                                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
+
+                                until v.Humanoid.Health <= 0 or not _G.AutoSeaking or not game:GetService("Workspace").SeaMonster:FindFirstChild("SeaKing")                       
+                            end
+                        else
+                            if game:GetService("Workspace").Island["Sea King Thunder"] then
+                                TP(game:GetService("Workspace").Island["Sea King Thunder"].SeaBeastChest.ChestTop.CFrame * CFrame.new(0,0,0))
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.AutoHydra and _G.AutoHydra_Hop then
+                pcall(function()
+                    if notgame:GetService("Workspace").Island["Sea King Thunder"] then
+                        wait(3)
+                        Hop()
+                    end
+                end)
+            end
+        end
+    end)
+
+
+end
     if First_Sea then
     
     Main:AddSeperatorLeft("Saber")
@@ -3932,8 +3907,26 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     end
+    if Second_Sea then
     Main:AddSeperatorLeft("Enma")
-    
+     KingSamurai = Main:AddLabelLeft("")
+  
+
+             function t1y()
+    		if game:GetService("Workspace").Monster.Boss:FindFirstChild("King Samurai [Lv. 3500]") then
+              KingSamurai:Set("King Samurai : 🟢")   
+                else
+                    KingSamurai:Set("King Samurai : 🔴")    
+                end
+                end
+
+         spawn(function()
+        while task.wait() do
+            pcall(function()
+                t1y()
+            end)
+        end
+         end)
     Main:AddToggleLeft("Auto Enma",_G.AutoEnma,function(value)
         _G.AutoEnma = value
         StopNoClip(_G.AutoEnma)
@@ -3979,9 +3972,27 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
             end
         end
     end)
+    end
     
     Main:AddSeperatorLeft("Big Mom Boss")
-    
+    Bigmom = Main:AddLabelLeft("")
+  
+
+             function t1y1()
+    		if game:GetService("Workspace").Monster.Boss:FindFirstChild("King Samurai [Lv. 3500]") then
+              Bigmom:Set("Big Mom : 🟢")   
+                else
+                    Bigmom:Set("Big Mom : 🔴")    
+                end
+                end
+
+         spawn(function()
+        while task.wait() do
+            pcall(function()
+                t1y1()
+            end)
+        end
+         end)
     Main:AddToggleLeft("Auto Big Mom Boss",_G.AutoBigMomBoss,function(value)
         _G.AutoBigMomBoss = value
         StopNoClip(_G.AutoBigMomBoss)
@@ -4029,7 +4040,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     end)
     
     Main:AddSeperatorLeft("Others")
-    
+    if First_Sea then
     Main:AddToggleLeft("Auto Big Mom Blade",_G.AutoBigMomBlade,function(value)
         _G.AutoBigMomBlade = value
         StopNoClip(_G.AutoBigMomBlade)
@@ -4099,6 +4110,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
             end
         end
     end)
+   
     
     Main:AddToggleLeft("Auto Bisento",_G.AutoBisento,function(value)
         _G.AutoBisento = value
@@ -4137,7 +4149,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
             end
         end
     end)
-    
+    end
+    if Second_Sea then
     Main:AddToggleLeft("Auto Kaido",_G.AutoKaido,function(value)
         _G.AutoKaido = value
         StopNoClip(_G.AutoKaido)
@@ -4207,10 +4220,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
             end
         end
     end)
+    end
+    Main:AddSeperatorRight("Auto Stats")
     
-    Stats:AddSeperator("Auto Stats")
-    
-    Stats:AddToggle("Auto Defense",_G.AutoDefense,function(value)
+    Main:AddToggleRight("Auto Defense",_G.AutoDefense,function(value)
         _G.AutoDefense = value
     end)
     
@@ -4226,7 +4239,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Stats:AddToggle("Auto Melee",_G.AutoMelee,function(value)
+    Main:AddToggleRight("Auto Melee",_G.AutoMelee,function(value)
         _G.AutoMelee = value
     end)
     
@@ -4242,7 +4255,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Stats:AddToggle("Auto Sword",_G.AutoSword,function(value)
+    Main:AddToggleRight("Auto Sword",_G.AutoSword,function(value)
         _G.AutoSword = value
     end)
     
@@ -4258,7 +4271,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Stats:AddToggle("Auto Devil Fruit",_G.AutoDevilFruit,function(value)
+    Main:AddToggleRight("Auto Devil Fruit",_G.AutoDevilFruit,function(value)
         _G.AutoDevilFruit = value
     end)
     
@@ -4274,9 +4287,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Stats:AddSeperator("Settings")
+   
     
-    local PointLabel = Stats:AddLabel("Point")
+    local PointLabel = Main:AddLabelRight("Point")
     
     spawn(function()
         while wait() do
@@ -4287,13 +4300,13 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     end)
     
     PointStats = 1
-    Stats:AddSlider("Select Point",1,100,1,function(value)
+    Main:AddSliderRight("Select Point",1,100,1,function(value)
         PointStats = value
     end)
     
-    Combat:AddSeperator("Players")
+    Main:AddSeperatorRight("Players")
     
-    local plyserv = Combat:AddLabel("Players")
+    local plyserv = Main:AddLabelRight("Players")
     
     spawn(function()
         while wait() do
@@ -4318,11 +4331,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end
     
-    local SelectedPly = Combat:AddDropdown("Select Players",PlayerName,function(value)
+    local SelectedPly = Main:AddDropdownRight("Select Players",PlayerName,function(value)
         _G.SelectPly = value
     end)
     
-    Combat:AddButton("Refresh Player",function()
+    Main:AddButtonRight("Refresh Player",function()
         PlayerName = {}
         SelectedPly:Clear()
         for i,v in pairs(game.Players:GetChildren()) do  
@@ -4332,7 +4345,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Combat:AddToggle("Spectate Player",false,function(value)
+    Main:AddToggleRight("Spectate Player",false,function(value)
         Spectate = value
         local plr1 = game.Players.LocalPlayer.Character.Humanoid
         local plr2 = game.Players:FindFirstChild(_G.SelectPly)
@@ -4342,11 +4355,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         game.Workspace.Camera.CameraSubject = plr1
     end)
     
-    Combat:AddButton("Teleport",function()
+    Main:AddButtonRight("Teleport",function()
         TP(game.Players[_G.SelectPly].Character.HumanoidRootPart.CFrame)
     end)
     
-    Combat:AddToggle("Auto Kill Player",false,function(value)
+    Main:AddToggleRight("Auto Kill Player",false,function(value)
         _G.AutoKillply = value
         StopNoClip(_G.AutoKillply)
     end)
@@ -4368,7 +4381,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Combat:AddDropdown("Select Method",{"Behind","Below","Upper"},function(value)
+    Main:AddDropdownRight("Select Method",{"Behind","Below","Upper"},function(value)
         _G.Method2 = value
     end)
     
@@ -4389,7 +4402,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     end)
     
     Distanceply = 1
-    Combat:AddSlider("Distance",1,100,1,function(value)
+    Main:AddSliderRight("Distance",1,100,1,function(value)
         Distanceply = value
     end)
     
@@ -4400,11 +4413,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end
     
-    local SelectWeaponply = Combat:AddDropdown("Select Weapon",Weaponply,function(value)
+    local SelectWeaponply = Main:AddDropdownRight("Select Weapon",Weaponply,function(value)
         _G.SelectWeaponKill = value
     end)
     
-    Combat:AddButton("Refresh Weapon",function()
+    Main:AddButtonRight("Refresh Weapon",function()
         SelectWeaponply:Clear()
         Weaponply = {}
         for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
@@ -4419,10 +4432,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Teleport:AddSeperator("MaP")
+    Teleport:AddSeperatorLeft("MaP")
     
     if Second_Sea then
-        Teleport:AddButton("Old Wolrd",function()
+        Teleport:AddButtonLeft("Old Wolrd",function()
             TeleporttoOldWorld = true
         end)
         spawn(function()
@@ -4451,74 +4464,74 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     Teleport:AddSeperator("Island")
     
     if Second_Sea then
-        Teleport:AddButton("Floresco",function()
+        Main:AddButtonLeft("Floresco",function()
                TP(CFrame.new(3709.0542, 56.4489174, 231.976654))
         end)
-         Teleport:AddButton("Hibernus Land",function()
+         Main:AddButtonLeft("Hibernus Land",function()
                TP(CFrame.new(2763.18311, 134.725479, -819.026123))
         end)
-        Teleport:AddButton("Torrefacio",function()
+        Main:AddButtonLeft("Torrefacio",function()
                TP(CFrame.new(1779.29321, 56.12677, 1060.08374))
         end)
-        Teleport:AddButton("Cercer",function()
+        Main:AddButtonLeft("Cercer",function()
                TP(CFrame.new(3017.57373, 29.2057247, 1378.00024))
         end)
-        Teleport:AddButton("Skull lsland",function()
+        Main:AddButtonLeft("Skull lsland",function()
                TP(CFrame.new(1003.04968, 87.1491852, 6579.34277))
         end)
-        Teleport:AddButton("Loaf lsland",function()
+        Main:AddButtonLeft("Loaf lsland",function()
                TP(CFrame.new(6552.32617, 28.6099815, 7612.51514))
         end)
-        Teleport:AddButton("Dead Thudra",function()
+        Main:AddButtonLeft("Dead Thudra",function()
                TP(CFrame.new(8377.90527, 14.3858547, 969.619324))
         end)
-        Teleport:AddButton("Santa Factory",function()
+        Main:AddButtonLeft("Santa Factory",function()
             TP(CFrame.new(10495.908203125, 61.35665512084961, 5763.68310546875))
         end)
     else
-        Teleport:AddButton("Stone Rain Sea",function()
+        Main:AddButtonLeft("Stone Rain Sea",function()
                TP(CFrame.new(6210.5903320312, 50.080966949463, -2050.3303222656))
         end)
-        Teleport:AddButton("Town",function()
+        Main:AddButtonLeft("Town",function()
                TP(CFrame.new(2061.2985839844, 48.301433563232, -1572.8010253906))
         end)
-         Teleport:AddButton("Pirate Island",function()
+         Main:AddButton("Pirate Island",function()
                TP(CFrame.new(3751.3720703125, 42.429008483887, -479.09103393555))
         end)
-        Teleport:AddButton("Soldier Town",function()
+        Main:AddButton("Soldier Town",function()
                TP(CFrame.new(1734.4392089844, 68.61457824707, 233.17127990723))
         end)
-        Teleport:AddButton("Shark Island",function()
+        Main:AddButton("Shark Island",function()
                TP(CFrame.new(3507.51171875, 10.541933059692, 1499.6036376953))
         end)
-        Teleport:AddButton("Chef Ship",function()
+        Main:AddButton("Chef Ship",function()
                TP(CFrame.new(32.638660430908, 149.17311096191, -37.506324768066))
         end)
-        Teleport:AddButton("Snow Island",function()
+        Main:AddButton("Snow Island",function()
                TP(CFrame.new(-1242.2866210938, 18.07179069519, 1587.9304199219))
         end)
-        Teleport:AddButton("Desert Island",function()
+        Main:AddButton("Desert Island",function()
                TP(CFrame.new(1536.3891601562, 12.834725379944, 2125.1857910156))
         end)
-        Teleport:AddButton("Skyland",function()
+        Main:AddButton("Skyland",function()
                TP(CFrame.new(89.631294250488, 386.47360229492, 4216.4599609375))
         end)
-        Teleport:AddButton("Bubbleland",function()
+        Main:AddButton("Bubbleland",function()
                TP(CFrame.new(5783.2954101562, 11.971294403076, 3483.4353027344))
         end)
-        Teleport:AddButton("Stone Arena",function()
+        Main:AddButton("Stone Arena",function()
                TP(CFrame.new(9555.916015625, 37.722194671631, -3841.9360351562))
         end)
-        Teleport:AddButton("War Island",function()
+        Main:AddButton("War Island",function()
                TP(CFrame.new(6510.5747070312, 49.603099822998, 937.15655517578))
         end)
-        Teleport:AddButton("Lobby Island",function()
+        Main:AddButton("Lobby Island",function()
                TP(CFrame.new(3032.4575195312, 13.059648513794, 5632.8969726562))
         end)
-        Teleport:AddButton("Zombie Island",function()
+        Main:AddButton("Zombie Island",function()
                TP(CFrame.new(1641.8089599609, 26.438592910767, 6653.8837890625))
         end)
-        Teleport:AddButton("Fishland",function()
+        Main:AddButton("Fishland",function()
                TP(CFrame.new(2412.5144042969, 40.273021697998, 9371.54296875))
         end)
     end
