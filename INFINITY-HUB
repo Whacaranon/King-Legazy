@@ -671,7 +671,7 @@ WindowStroke.Name = "WindowStroke"
 		UIPadding.PaddingLeft = UDim.new(0, 10)
 		UIPadding.PaddingTop = UDim.new(0, 10)
 
-		UIListLayout.Padding = UDim.new(0,4)
+		UIListLayout.Padding = UDim.new(0,0)
 		UIListLayout.Parent = MainFramePage
 		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 		
@@ -755,7 +755,7 @@ WindowStroke.Name = "WindowStroke"
 		UIPadding2.PaddingLeft = UDim.new(0, 10)
 		UIPadding2.PaddingTop = UDim.new(0, 10)
 
-		UIListLayout2.Padding = UDim.new(0,4)
+		UIListLayout2.Padding = UDim.new(0,0)
 		UIListLayout2.Parent = MainFramePage2
 		UIListLayout2.SortOrder = Enum.SortOrder.LayoutOrder
 		
@@ -3979,7 +3979,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
   
 
              function t1y1()
-    		if game:GetService("Workspace").Monster.Boss:FindFirstChild("King Samurai [Lv. 3500]") then
+    		if game:GetService("Workspace").Monster.Boss:FindFirstChild("Ms. Mother [Lv.7500]") then
               Bigmom:Set("Big Mom : 🟢")   
                 else
                     Bigmom:Set("Big Mom : 🔴")    
@@ -4461,104 +4461,104 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     
     
     
-    Teleport:AddSeperator("Island")
+    Teleport:AddSeperatorLeft("Island")
     
     if Second_Sea then
-        Main:AddButtonLeft("Floresco",function()
+        Teleport:AddButtonLeft("Floresco",function()
                TP(CFrame.new(3709.0542, 56.4489174, 231.976654))
         end)
-         Main:AddButtonLeft("Hibernus Land",function()
+         Teleport:AddButtonLeft("Hibernus Land",function()
                TP(CFrame.new(2763.18311, 134.725479, -819.026123))
         end)
-        Main:AddButtonLeft("Torrefacio",function()
+        Teleport:AddButtonLeft("Torrefacio",function()
                TP(CFrame.new(1779.29321, 56.12677, 1060.08374))
         end)
-        Main:AddButtonLeft("Cercer",function()
+        Teleport:AddButtonLeft("Cercer",function()
                TP(CFrame.new(3017.57373, 29.2057247, 1378.00024))
         end)
-        Main:AddButtonLeft("Skull lsland",function()
+        Teleport:AddButtonLeft("Skull lsland",function()
                TP(CFrame.new(1003.04968, 87.1491852, 6579.34277))
         end)
-        Main:AddButtonLeft("Loaf lsland",function()
+        Teleport:AddButtonLeft("Loaf lsland",function()
                TP(CFrame.new(6552.32617, 28.6099815, 7612.51514))
         end)
-        Main:AddButtonLeft("Dead Thudra",function()
+        Teleport:AddButtonLeft("Dead Thudra",function()
                TP(CFrame.new(8377.90527, 14.3858547, 969.619324))
         end)
-        Main:AddButtonLeft("Santa Factory",function()
+        Teleport:AddButtonLeft("Santa Factory",function()
             TP(CFrame.new(10495.908203125, 61.35665512084961, 5763.68310546875))
         end)
     else
-        Main:AddButtonLeft("Stone Rain Sea",function()
+        Thudra:AddButtonLeft("Stone Rain Sea",function()
                TP(CFrame.new(6210.5903320312, 50.080966949463, -2050.3303222656))
         end)
-        Main:AddButtonLeft("Town",function()
+        Teleport:AddButtonLeft("Town",function()
                TP(CFrame.new(2061.2985839844, 48.301433563232, -1572.8010253906))
         end)
-         Main:AddButton("Pirate Island",function()
+         Teleport:AddButtonLeft("Pirate Island",function()
                TP(CFrame.new(3751.3720703125, 42.429008483887, -479.09103393555))
         end)
-        Main:AddButton("Soldier Town",function()
+        Teleport:AddButtonLeft("Soldier Town",function()
                TP(CFrame.new(1734.4392089844, 68.61457824707, 233.17127990723))
         end)
-        Main:AddButton("Shark Island",function()
+        Teleport:AddButtonLeft("Shark Island",function()
                TP(CFrame.new(3507.51171875, 10.541933059692, 1499.6036376953))
         end)
-        Main:AddButton("Chef Ship",function()
+        Teleport:AddButtonLeft("Chef Ship",function()
                TP(CFrame.new(32.638660430908, 149.17311096191, -37.506324768066))
         end)
-        Main:AddButton("Snow Island",function()
+        Teleport:AddButtonLeft("Snow Island",function()
                TP(CFrame.new(-1242.2866210938, 18.07179069519, 1587.9304199219))
         end)
-        Main:AddButton("Desert Island",function()
+        Teleport:AddButtonLeft("Desert Island",function()
                TP(CFrame.new(1536.3891601562, 12.834725379944, 2125.1857910156))
         end)
-        Main:AddButton("Skyland",function()
+        Teleport:AddButtonLeft("Skyland",function()
                TP(CFrame.new(89.631294250488, 386.47360229492, 4216.4599609375))
         end)
-        Main:AddButton("Bubbleland",function()
+        Teleport:AddButtonLeft("Bubbleland",function()
                TP(CFrame.new(5783.2954101562, 11.971294403076, 3483.4353027344))
         end)
-        Main:AddButton("Stone Arena",function()
+        Teleport:AddButtonLeft("Stone Arena",function()
                TP(CFrame.new(9555.916015625, 37.722194671631, -3841.9360351562))
         end)
-        Main:AddButton("War Island",function()
+        Teleport:AddButtonLeft("War Island",function()
                TP(CFrame.new(6510.5747070312, 49.603099822998, 937.15655517578))
         end)
-        Main:AddButton("Lobby Island",function()
+        Teleport:AddButtonLeft("Lobby Island",function()
                TP(CFrame.new(3032.4575195312, 13.059648513794, 5632.8969726562))
         end)
-        Main:AddButton("Zombie Island",function()
+        Teleport:AddButtonLeft("Zombie Island",function()
                TP(CFrame.new(1641.8089599609, 26.438592910767, 6653.8837890625))
         end)
-        Main:AddButton("Fishland",function()
+        Teleport:AddButtonLeft("Fishland",function()
                TP(CFrame.new(2412.5144042969, 40.273021697998, 9371.54296875))
         end)
     end
     
-    Teleport:AddSeperator("SHOP")
+    Teleport:AddSeperatorLeft("SHOP")
     
     if First_Sea then
-        Teleport:AddButton("Buso Shop",function()
+        Teleport:AddButtonLeft("Buso Shop",function()
             TP(CFrame.new(5841.32080078125, 12.240174293518066, 3603.513671875))
         end)
     elseif Second_Sea then
-        Teleport:AddButton("Electro Shop",function()
+        Teleport:AddButtonLeft("Electro Shop",function()
             TP(CFrame.new(2462.47412109375, 173.04458618164062, -1099.1248779296875))
         end)
     end
     
     if First_Sea then
-        Teleport:AddButton("Ken Shop",function()
+        Teleport:AddButtonLeft("Ken Shop",function()
             TP(CFrame.new(65.57159423828125, 386.49786376953125, 4064.0361328125))
         end)
     elseif Second_Sea then
-        Teleport:AddButton("Dragon Claw Shop",function()
+        Teleport:AddButtonLeft("Dragon Claw Shop",function()
             TP(CFrame.new(2719.325927734375, 430.6570739746094, 721.2157592773438))
         end)
     end
     
-    Teleport:AddButton("Black Leg Shop",function()
+    Teleport:AddButtonLeft("Black Leg Shop",function()
         if First_Sea then
             TP(CFrame.new(6457.87548828125, 168.47467041015625, -2376.072509765625))
         elseif Second_Sea then
@@ -4566,7 +4566,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Teleport:AddButton("Cybrog Shop",function()
+    Teleport:AddButtonLeft("Cybrog Shop",function()
         if First_Sea then
             TP(CFrame.new(6457.87548828125, 168.47467041015625, -2376.072509765625))
         elseif Second_Sea then
@@ -4574,7 +4574,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Teleport:AddButton("Water Style Shop",function()
+    Teleport:AddButtonLeft("Water Style Shop",function()
         if First_Sea then
             TP(CFrame.new(3944.12646484375, 123.67578125, 1489.2821044921875))
         elseif Second_Sea then
@@ -4583,18 +4583,18 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     end)
     
     if First_Sea then
-        Teleport:AddButton("Sword Shop",function()
+        Teleport:AddButtonLeft("Sword Shop",function()
             TP(CFrame.new(2360.398681640625, 40.2966423034668, 9683.9658203125))
         end)
     elseif Second_Sea then
-        Teleport:AddButton("ReStat Shop",function()
+        Teleport:AddButtonLeft("ReStat Shop",function()
             TP(CFrame.new(2433.724609375, 57.30705261230469, 142.7527618408203))
         end)
     end
     
-    Dungeon:AddSeperator("Dungeon")
+    Teleport:AddSeperatorRight("Dungeon")
     
-    Dungeon:AddButton("Teleport to Dungeon",function()
+    Teleport:AddButtonRight("Teleport to Dungeon",function()
         if First_Sea then
             TP(CFrame.new(6729.3916015625, 103.67321777344, 952.03881835938))
         elseif Second_Sea then
@@ -4603,21 +4603,21 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     end)
     
     if not Dungeon_Sea then
-        Dungeon:AddLabel("In Dungeon Only!")
+        Teleport:AddLabelRight("In Dungeon Only!")
     end
     
     if Dungeon_Sea then
-        Dungeon:AddToggle("Auto Farm Dungeon",_G.AutoFarmDungeon,function(value)
+        Teleport:AddToggleRight("Auto Farm Dungeon",_G.AutoFarmDungeon,function(value)
             _G.AutoFarmDungeon = value
         end)
     
         _G.SaveAt = 30
-        Dungeon:AddSlider("Save At",1,100,30,function(value)
+        Teleport:AddSliderRight("Save At",1,100,30,function(value)
             _G.SaveAt = value
         end)
     
         DistanceDungeon = 2
-        Dungeon:AddSlider("Distance",1,100,2,function(value)
+        Teleport:AddSliderRight("Distance",1,100,2,function(value)
             DistanceDungeon = value
         end)
     
@@ -4714,17 +4714,17 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end)
     end
     
-    Misc:AddSeperator("Server")
+    Misc:AddSeperatorRight("Server")
     
-    Misc:AddButton("Rejoin Server",function()
+    Misc:AddButtonRight("Rejoin Server",function()
         game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
     end)
     
-    Misc:AddButton("Server Hop",function()
+    Misc:AddButtonRight("Server Hop",function()
         Hop()
     end)
     
-    Misc:AddButton("Hop To Lower Player",function()
+    Misc:AddButtonRight("Hop To Lower Player",function()
         getgenv().AutoTeleport = true
         getgenv().DontTeleportTheSameNumber = true 
         getgenv().CopytoClipboard = false
@@ -4771,9 +4771,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Misc:AddSeperator("Devil Fruits")
+    Misc:AddSeperatorLeft("Devil Fruits")
     
-    Misc:AddToggle("Auto Random Fruit Beli",_G.AutoRandomFruitBeli,function(value)
+    Misc:AddToggleLeft("Auto Random Fruit Beli",_G.AutoRandomFruitBeli,function(value)
         _G.AutoRandomFruitBeli = value
     end)
     
@@ -4804,7 +4804,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Misc:AddToggle("Auto Random Fruit Gem",_G.AutoRandomFruitGem,function(value)
+    Misc:AddToggleLeft("Auto Random Fruit Gem",_G.AutoRandomFruitGem,function(value)
         _G.AutoRandomFruitGem = value
     end)
     
@@ -4835,7 +4835,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Misc:AddToggle("Bring Fruit",_G.BringFruit,function(value)
+    Misc:AddToggleLeft("Bring Fruit",_G.BringFruit,function(value)
         _G.BringFruit = value
     end)
     
@@ -4853,16 +4853,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Misc:AddSeperator("Abilities")
+    Misc:AddSeperatorLeft("Abilities")
     
-    OldCanGeppo = game.Players.LocalPlayer.Backpack.GeppoNew.cds.Value
-    Misc:AddToggle("Inf Geppo",false,function(value)
-        if value == true then
-            game.Players.LocalPlayer.Backpack.GeppoNew.cds.Value = 1000000000000000000
-        elseif value == false then
-            game.Players.LocalPlayer.Backpack.GeppoNew.cds.Value = OldCanGeppo
-        end
-    end)
     
     Misc:AddToggleLeft("Fly",false,function(value)
         Fly = value
@@ -4878,35 +4870,35 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     
-    Misc:AddToggle("No Clip",false,function(value)
+    Misc:AddToggleLeft("No Clip",false,function(value)
         _G.NoClip = value
     end)
     
-    Misc:AddSeperator("ESP")
+    Misc:AddSeperatorLeft("ESP")
     
-    Misc:AddToggle("Player ESP",ESPPlayer,function(value)
+    Misc:AddToggleLeft("Player ESP",ESPPlayer,function(value)
         ESPPlayer = value
         while ESPPlayer do wait()
             UpdateEspPlayer()
         end
     end)
     
-    Misc:AddToggle("Devil Fruit ESP",DevilFruitESP,function(value)
+    Misc:AddToggleLeft("Devil Fruit ESP",DevilFruitESP,function(value)
         DevilFruitESP = value
         while DevilFruitESP do wait()
             UpdateBfEsp() 
         end
     end)
     
-    Settings:AddSeperator("Ui")
+    Misc:AddSeperatorLeft("Ui")
     
     
     
-    Settings:AddTextbox("Level","",true,function(value)
+    Misc:AddTextboxLeft("Level","",true,function(value)
         _G.LockAt = value
     end)
     
-    Settings:AddToggle("Lock Level",_G.LockLevel,function(value)
+    Misc:AddToggleLeft("Lock Level",_G.LockLevel,function(value)
         _G.LockLevel = value
     end)
     
