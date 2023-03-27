@@ -3130,7 +3130,7 @@ local RenUi = Update:AddWindow("Infinity Hub","10039618734",Enum.KeyCode.RightCo
     game:GetService("RunService").Stepped:Connect(function()
         pcall(function()
             
-            if _G.AutoGhostShip or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
+            if _G.AutoGhostShip or _G.AutoHydra or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
 if syn then
 					setfflag("HumanoidParallelRemoveNoPhysics", "False")
 					setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -3169,7 +3169,7 @@ end)
     
     spawn(function()
         while wait() do
-            if _G.AutoGhostShip or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
+            if _G.AutoGhostShip or _G.AutoHydra or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
                 pcall(function()
                     game:GetService("Players").LocalPlayer.Character.Services.Client.KenEvent:InvokeServer(true)
                 end)
@@ -3180,7 +3180,7 @@ end)
     spawn(function()
         pcall(function()
             game:GetService("RunService").Stepped:Connect(function()
-                if _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma or _G.NoClip then
+                if _G.AutoSantaEvents or _G.AutoHydra or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma or _G.NoClip then
                     for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                         if v:IsA("BasePart") then
                             v.CanCollide = false    
@@ -3408,24 +3408,28 @@ end;
 							if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 								repeat wait();
 									AutoHaki()
+                                            TP(v.HumanoidRootPart.CFrame * MethodFarm)       
                                             EquipWeapon(_G.SelectWeapon)
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-                                            TP(v.HumanoidRootPart.CFrame * MethodFarm)                       
                                             if _G.AutoSkill then 
                                         UseSkill("Z")
                                         UseSkill("X")
                                         UseSkill("C");
                                         UseSkill("V");
                                     end;
+                                                            
+                                            
 								until not v.Parent or v.Humanoid.Health <= 0 or not _G.AutoFarm or game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.Visible == false;
 							end;
 						end;
 					else
+					    if Second_Sea and game.Players.LocalPlayer.PlayerStats.lvl.Value == 3275 or game.Players.LocalPlayer.PlayerStats.lvl.Value <= 3300 then
+                                            TP(CFrame.new(30272.3203125, 65.4236068725586, 93207.0234375))
+                                        else
 						if not game:GetService("Workspace").AllNPC:FindFirstChild("QuestLvl"..CheckQuest()) then
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("ReplicatedStorage").MAP["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0);
 						else 
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").AllNPC["QuestLvl"..CheckQuest()].HumanoidRootPart.CFrame * CFrame.new(0,500,0);
+				end
 						end;
 					end;
 				end;
@@ -3435,6 +3439,19 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
 	end;
 end
 );
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.AutoFarm and _G.AutoGhostShip then
+                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
+end
+end)
+end
+end)
+                
+
     if First_Sea then
     Main:AddToggleLeft("Auto Second Sea fIX",_G.AutoSecondSea,function(value)
         _G.AutoSecondSea = value
@@ -3492,15 +3509,16 @@ end
                                                     AutoHaki()
                                                     EquipWeapon(_G.SelectWeapon)
                                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
+                                                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
+
                                                     if _G.AutoSkill then 
                                                         UseSkill("Z")
                                                         UseSkill("X")
                                                         UseSkill("C")
                                                         UseSkill("V")
                                                     end
-                                                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
+                                                   
                                                 until v.Humanoid.Health <= 0 or not _G.AutoSecondSea or game.Players.LocalPlayer.Character:FindFirstChild("Map") or game.Players.LocalPlayer.Backpack:FindFirstChild("Map")
                                             end
                                         end
@@ -3543,8 +3561,12 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
 
     Main:AddToggleLeft("Auto Sea King",_G.AutoSeaking,function(value)
         _G.AutoSeaking = value
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("AccessoryEq"):InvokeServer("Sea King Jaw")
+
         StopNoClip(_G.AutoSeaking)
     end)
+    
+    
     
     Main:AddToggleLeft("Auto Sea King Hop",_G.AutoSeaking_Hop,function(value)
         _G.AutoSeaking_Hop = value
@@ -3557,9 +3579,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                     for i,v in pairs(game:GetService("Workspace").SeaMonster:GetChildren()) do
                         if game:GetService("Workspace").SeaMonster:FindFirstChild("SeaKing") and v.Humanoid.Health > 0 then
                             if v.Name == "SeaKing" then
-                                repeat task.wait()
+                                repeat wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
+                                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
                                     TP(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(90), 0, 0) - Vector3.new(0,25,0))
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
@@ -3567,9 +3591,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                         UseSkill("C")
                                         UseSkill("V")
                                     end
-                                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
                                 until v.Humanoid.Health <= 0 or not _G.AutoSeaking or not game:GetService("Workspace").SeaMonster:FindFirstChild("SeaKing")                       
                             end
                         else
@@ -3583,6 +3604,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                 TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island4").ChestSpawner.CFrame * CFrame.new(0,0,2))
                             end
                         end
+                   
                     end
                 end)
             end
@@ -3640,19 +3662,18 @@ Main:AddToggleLeft("Auto Hydra",_G.AutoSeaking,function(value)
                     for i,v in pairs(game:GetService("Workspace").SeaMonster:GetChildren()) do
                         if game:GetService("Workspace").SeaMonster:FindFirstChild("HydraSeaKing") and v.Humanoid.Health > 0 then
                             if v.Name == "HydraSeaKing" then
-                                repeat task.wait()
+                                repeat wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
-                                    TP(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(90), 0, 0) - Vector3.new(0,25,0))
+                                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
+                                    TP(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(90), 0, 0) * CFrame.new(0,75,0))
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
                                         UseSkill("X")
                                         UseSkill("C")
                                         UseSkill("V")
                                     end
-                                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
                                 until v.Humanoid.Health <= 0 or not _G.AutoSeaking or not game:GetService("Workspace").SeaMonster:FindFirstChild("SeaKing")                       
                             end
                         else
@@ -3670,7 +3691,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         while wait() do
             if _G.AutoHydra and _G.AutoHydra_Hop then
                 pcall(function()
-                    if notgame:GetService("Workspace").Island["Sea King Thunder"] then
+                    if not game:GetService("Workspace").SeaMonster:FindFirstChild("HydraSeaKing") then
                         wait(3)
                         Hop()
                     end
@@ -3701,7 +3722,7 @@ end
                     if game:GetService("Workspace").Monster.Boss:FindFirstChild("Expert Swordman [Lv. 3000]") then
                         for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
                             if v.Name == "Expert Swordman [Lv. 3000]" and v.Humanoid.Health > 0 then
-                                repeat task.wait()
+                                repeat wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
@@ -3780,16 +3801,32 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
   --      end
   --  end)
     
- --   Main:AddSeperator("Santa Events")
+   Main:AddSeperatorLeft("Santa Events")
     
- --   Main:AddToggle("Auto Santa Events",_G.AutoSantaEvents,function(value)
-   --     _G.AutoSantaEvents = value
-   --     StopNoClip(_G.AutoSantaEvents)
- --   end)
+ Santa  =  Main:AddLabelLeft("")
+     function i1opu()
+    		if game:GetService("Workspace").Monster.Boss:FindFirstChild("Kris Kringle [Lv. 10000]") then
+              Santa:Set("Hydra : 🟢")   
+                else
+                    Santa:Set("Hydra : 🔴")    
+                end
+                end
+
+         spawn(function()
+        while task.wait() do
+            pcall(function()
+                i1opu()
+            end)
+        end
+         end)
+   Main:AddToggleLeft("Auto Santa Events",_G.AutoSantaEvents,function(value)
+      _G.AutoSantaEvents = value
+      StopNoClip(_G.AutoSantaEvents)
+  end)
     
-   -- Main:AddToggle("Auto Santa Events Hop",_G.AutoSantaEvents_Hop,function(value)
-    --    _G.AutoSantaEvents_Hop = value
-  --  end)
+  Main:AddToggleLeft("Auto Santa Events Hop",_G.AutoSantaEvents_Hop,function(value)
+       _G.AutoSantaEvents_Hop = value
+   end)
   
   
     
@@ -3800,19 +3837,20 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                     if game:GetService("Workspace").Monster.Boss:FindFirstChild("Kris Kringle [Lv. 10000]") then
                         for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
                             if v.Name == "Kris Kringle [Lv. 10000]" and v.Humanoid.Health > 0 then
-                                repeat task.wait()
+                                repeat wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
+                                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
+
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
                                         UseSkill("X")
                                         UseSkill("C")
                                         UseSkill("V")
                                     end
-                                                                       game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
+                                                                       
                                 until v.Humanoid.Health <= 0 or not _G.AutoSantaEvents
                             end
                         end
@@ -3859,12 +3897,15 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     
     Main:AddToggleLeft("Auto Ghost Ship",_G.AutoGhostShip,function(value)
         _G.AutoGhostShip = value
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("AccessoryEq"):InvokeServer("Bullitus")
+
         StopNoClip(_G.AutoGhostShip)
     end)
     
     Main:AddToggleLeft("Auto Ghost Ship Hop",_G.AutoGhostShip_Hop,function(value)
         _G.AutoGhostShip_Hop = value
     end)
+    
     
     spawn(function()
         while wait() do
@@ -3873,7 +3914,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                     if game:GetService("Workspace").GhostMonster:FindFirstChild("Ghost Ship") then
                         for i,v in pairs(game:GetService("Workspace"):FindFirstChild("GhostMonster"):GetChildren()) do
                             if v.Name == "Ghost Ship" and v.Humanoid.Health > 0 then
-                                repeat task.wait()
+                                repeat wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
@@ -3883,19 +3924,18 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                         UseSkill("C")
                                         UseSkill("V")
                                     end
-                                                                        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
                                 until v.Humanoid.Health <= 0 or not _G.AutoGhostShip or not game:GetService("Workspace").GhostMonster:FindFirstChild("Ghost Ship")
                             end
                         end
                     else
                         if game:GetService("Workspace"):FindFirstChild("Chest1") then
-                            TP(game:GetService("Workspace"):FindFirstChild("Chest1").HumanoidRootPart.CFrame)
+                            TP(game:GetService("Workspace"):FindFirstChild("Chest1").RootPart.CFrame)
                         elseif game:GetService("Workspace"):FindFirstChild("Chest2") then
-                            TP(game:GetService("Workspace"):FindFirstChild("Chest2").HumanoidRootPart.CFrame)
+                            TP(game:GetService("Workspace"):FindFirstChild("Chest2").RootPart.CFrame)
                         elseif game:GetService("Workspace"):FindFirstChild("Chest3") then
-                            TP(game:GetService("Workspace"):FindFirstChild("Chest3").HumanoidRootPart.CFrame)
+                            TP(game:GetService("Workspace"):FindFirstChild("Chest3").RootPart.CFrame)
+                        elseif game:GetService("Workspace"):FindFirstChild("Chest4") then
+                          TP(game:GetService("Workspace"):FindFirstChild("Chest4").RootPart.CFrame)
                         else
                             if _G.AutoGhostShip_Hop then
                                 Hop()
@@ -3946,6 +3986,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                 repeat task.wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
+                                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
@@ -3953,8 +3995,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                         UseSkill("C")
                                         UseSkill("V")
                                     end
-                                                                        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
 
                                 until v.Humanoid.Health <= 0 or not _G.AutoEnma
                             end
@@ -4012,6 +4052,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                 repeat task.wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
+                                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
+
                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
@@ -4019,10 +4062,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                         UseSkill("C")
                                         UseSkill("V")
                                     end
-                                                                       game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
-                                until v.Humanoid.Health <= 0 or not _G.AutoBigMomBoss
+                                                                          until v.Humanoid.Health <= 0 or not _G.AutoBigMomBoss
                             end
                         end
                     else
