@@ -3811,9 +3811,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
  Santa  =  Main:AddLabelLeft("")
      function i1opu()
     		if game:GetService("Workspace").Monster.Boss:FindFirstChild("Kris Kringle [Lv. 10000]") then
-              Santa:Set("Hydra : 🟢")   
+              Santa:Set("Kris Kringle : 🟢")   
                 else
-                    Santa:Set("Hydra : 🔴")    
+                    Santa:Set("Kris Kringle : 🔴")    
                 end
                 end
 
