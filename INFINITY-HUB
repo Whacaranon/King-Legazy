@@ -3457,7 +3457,7 @@ local Swordn = game:GetService("Players").LocalPlayer.PlayerStats.SwordName.Valu
 spawn(function()
     while wait() do
         pcall(function()
-            if _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
+            if _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
                 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
 end
 end)
@@ -3467,7 +3467,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
+            if _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
 end
 end)
@@ -4684,9 +4684,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         Teleport:AddButtonLeft("Skull Pirate",function()
             TP(game:GetService("Workspace").Island["G - Skull Pirate Island"].Part.CFrame)
         end)
-        
     else
-        Thudra:AddButtonLeft("Stone Rain Sea",function()
+        Teleport:AddButtonLeft("Stone Rain Sea",function()
                TP(CFrame.new(6210.5903320312, 50.080966949463, -2050.3303222656))
         end)
         Teleport:AddButtonLeft("Town",function()
@@ -4732,6 +4731,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                TP(CFrame.new(2412.5144042969, 40.273021697998, 9371.54296875))
         end)
     end
+    
     
     Teleport:AddSeperatorLeft("SHOP")
     
@@ -4818,6 +4818,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
             DistanceDungeon = value
         end)
     
+    Teleport:AddToggleRight("Auto Skill Dungeon",_G.AutoSkillRaid,function(a)
+        _G.AutoSkillRaid = a
+        end)
+    
         spawn(function()
             while wait() do
                 if _G.AutoFarmDungeon then
@@ -4825,6 +4829,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                         pcall(function()
                             for i,v in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
                                 if v:IsA("Tool") then
+                                    wait(1)
                                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
                                 end
                             end
@@ -4854,17 +4859,20 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
             while wait() do
                 if _G.AutoFarmDungeon and AutoFarmMobDungeon then
                     pcall(function()
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt then
+                        if game.Players.LocalPlayer.Character.Humanoid.Health > game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt + 15 then
                             for i,v in pairs(game:GetService("Workspace").MOB:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") then
                                     repeat task.wait()
                                         _G.NotEquip = false
                                         AutoHaki()
-                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,DistanceDungeon))
-                                        UseSkill("Z")
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,DistanceDungeon,0) * CFrame.Angles(math.rad(-90),0,0))
+                                       if _G.AutoSkillRaid then
+                                       UseSkill("Z")
                                         UseSkill("X")
                                         UseSkill("C")
                                         UseSkill("V")
+                                        
+                                        end
                                     until v.Humanoid.Health <= 0 or not _G.AutoFarmDungeon or not AutoFarmMobDungeon or game.Players.LocalPlayer.Character.Humanoid.Health <= game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt
                                 end
                             end
@@ -4882,9 +4890,9 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                             repeat task.wait()
                                 _G.NotEquip = true
                                 if game:GetService("Workspace").Island:FindFirstChild("Arena1") then
-                                    TP(CFrame.new(-9.393295288085938, 201.8232879638672, 16.94792366027832))
+                                    TP(CFrame.new(-23.8555984, 652.1427, 19.9850502, 0.749410629, 0.651705146, -0.11689347, 0.661202073, -0.745852113, 0.0807246864, -0.0345765464, -0.13778615, -0.98985827))
                                 else
-                                    TP(CFrame.new(-19.639192581176758, 182.88330078125, 6.57674503326416))
+                                    TP(CFrame.new(-23.8555984, 652.1427, 19.9850502, 0.749410629, 0.651705146, -0.11689347, 0.661202073, -0.745852113, 0.0807246864, -0.0345765464, -0.13778615, -0.98985827))
                                 end
                                 for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do 
                                     if v:IsA("Tool") then
