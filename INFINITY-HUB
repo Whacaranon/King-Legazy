@@ -9,7 +9,6 @@ local posto = Instance.new("UIStroke")
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 
-
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -3130,7 +3129,7 @@ local RenUi = Update:AddWindow("Infinity Hub","10039618734",Enum.KeyCode.RightCo
     game:GetService("RunService").Stepped:Connect(function()
         pcall(function()
             
-            if _G.AutoGhostShip or _G.AutoHydra or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
+            if _G.AutoGhostShip or _G.AutoHydra or _G.AutoBoss or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
 if syn then
 					setfflag("HumanoidParallelRemoveNoPhysics", "False")
 					setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -3169,7 +3168,7 @@ end)
     
     spawn(function()
         while wait() do
-            if _G.AutoGhostShip or _G.AutoHydra or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
+            if _G.AutoGhostShip or _G.AutoHydra or _G.AutoBoss or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
                 pcall(function()
                     game:GetService("Players").LocalPlayer.Character.Services.Client.KenEvent:InvokeServer(true)
                 end)
@@ -3180,7 +3179,7 @@ end)
     spawn(function()
         pcall(function()
             game:GetService("RunService").Stepped:Connect(function()
-                if _G.AutoSantaEvents or _G.AutoHydra or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma or _G.NoClip then
+                if _G.AutoSantaEvents or _G.AutoBoss or _G.AutoHydra or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma or _G.NoClip then
                     for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                         if v:IsA("BasePart") then
                             v.CanCollide = false    
@@ -3315,6 +3314,16 @@ elseif _G.BlackScreen == false then
 end
 end)
     
+    spawn(function()
+      while wait() do
+      if  _G.Blackscreen then
+                    game:GetService("Players").LocalPlayer.PlayerGui.TopbarPlus.TopbarContainer:Destroy() 
+
+            
+    end
+    end
+end) 
+    
     Wapon = {}
     for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
         if v:IsA("Tool") then
@@ -3445,7 +3454,7 @@ local Swordn = game:GetService("Players").LocalPlayer.PlayerStats.SwordName.Valu
 spawn(function()
     while wait() do
         pcall(function()
-            if _G.AutoFarm or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
+            if _G.AutoFarm or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
                 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
 end
@@ -3538,6 +3547,65 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     end
+    
+    Boss = {}
+     for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
+        if v:FindFirstChild("Humanoid")and v:FindFirstChild("Humanoid").Health~=0 then 
+            table.insert(Boss,v.Name)
+         end
+        end
+    
+    Main:AddSeperatorLeft("Boss")
+     
+     Boss = {}
+     for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
+        if v:FindFirstChild("Humanoid")and v:FindFirstChild("Humanoid").Health~=0 then 
+            table.insert(Boss,v.Name)
+         end
+        end
+    
+BossRE = Main:AddDropdownLeft("Select Boss",Boss,function(a)
+        _G.SelectBoss = a
+    end)
+    
+    Main:AddButtonLeft("Refresh Boss",function()
+        BossRE:Clear()
+        for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
+                BossRE:Add(v.Name)
+end
+        for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
+                BossRE:Add(v.Name)
+            end
+    end)
+    
+    Main:AddToggleLeft("Auto Boss",_G.AutoBoss,function(a)
+        _G.AutoBoss = a
+        end)
+    
+    spawn(function()
+        while wait() do
+            if _G.AutoBoss then
+                pcall(function()
+                        for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
+                            if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+                                repeat wait()
+                                    AutoHaki()
+                                    EquipWeapon(_G.SelectWeapon)
+                                    TP(v.HumanoidRootPart.CFrame * MethodFarm)
+                                    if _G.AutoSkill then 
+                                        UseSkill("Z")
+                                        UseSkill("X")
+                                        UseSkill("C")
+                                        UseSkill("V")
+                                    end
+                                until v.Humanoid.Health <= 0 or not _G.AutoBoss
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
     if Second_Sea then
         
     Main:AddSeperatorLeft("Sea King")
@@ -3585,8 +3653,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                 repeat wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
-                                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
                                     TP(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(90), 0, 0) - Vector3.new(0,25,0))
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
@@ -3668,8 +3734,6 @@ Main:AddToggleLeft("Auto Hydra",_G.AutoSeaking,function(value)
                                 repeat wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
-                                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
                                     TP(v.HumanoidRootPart.CFrame * CFrame.Angles(math.rad(90), 0, 0) * CFrame.new(0,75,0))
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
@@ -3934,13 +3998,12 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                         end
                     else
                         if game:GetService("Workspace"):FindFirstChild("Chest1") then
-                            TP(game:GetService("Workspace"):FindFirstChild("Chest1").RootPart.CFrame)
-                        elseif game:GetService("Workspace"):FindFirstChild("Chest2") then
-                            TP(game:GetService("Workspace"):FindFirstChild("Chest2").RootPart.CFrame)
-                        elseif game:GetService("Workspace"):FindFirstChild("Chest3") then
-                            TP(game:GetService("Workspace"):FindFirstChild("Chest3").RootPart.CFrame)
-                        elseif game:GetService("Workspace"):FindFirstChild("Chest4") then
-                          TP(game:GetService("Workspace"):FindFirstChild("Chest4").RootPart.CFrame)
+                            for Dh,oh in pairs(game.Workspace:GetChildren())do 
+                            if oh.Name:find("Chest")then 
+                                TP(oh.PrimaryPart.CFrame)
+                                wait(0.3);
+                            end;
+                        end;
                         else
                             if _G.AutoGhostShip_Hop then
                                 Hop()
@@ -4516,8 +4579,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     Teleport:AddSeperatorLeft("Island")
     
     if Second_Sea then
-        Teleport:AddButtonLeft("Floresco",function()
-               TP(CFrame.new(3709.0542, 56.4489174, 231.976654))
+        Teleport:AddButtonLeft("Statr Island",function()
+               TP(-4855.49365, 53.8519897, 111.927765, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
         end)
          Teleport:AddButtonLeft("Hibernus Land",function()
                TP(CFrame.new(2763.18311, 134.725479, -819.026123))
@@ -4540,6 +4603,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         Teleport:AddButtonLeft("Santa Factory",function()
             TP(CFrame.new(10495.908203125, 61.35665512084961, 5763.68310546875))
         end)
+        Teleport:AddButtonLeft("Skull Pirate",function()
+            TP(game:GetService("Workspace").Island["G - Skull Pirate Island"].Part.CFrame)
+        end)
+        
     else
         Thudra:AddButtonLeft("Stone Rain Sea",function()
                TP(CFrame.new(6210.5903320312, 50.080966949463, -2050.3303222656))
@@ -4606,7 +4673,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end)
     elseif Second_Sea then
         Teleport:AddButtonLeft("Dragon Claw Shop",function()
-            TP(CFrame.new(2719.325927734375, 430.6570739746094, 721.2157592773438))
+            TP(CFrame.new(-4603.2915, 337.002563, 602.837402, 0.99658066, -0, -0.0826257691, 0, 1, -0, 0.0826257691, 0, 0.99658066))
         end)
     end
     
@@ -4622,7 +4689,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         if First_Sea then
             TP(CFrame.new(6457.87548828125, 168.47467041015625, -2376.072509765625))
         elseif Second_Sea then
-            TP(CFrame.new(2325.837158203125, 57.26703643798828, 235.82777404785156))
+            TP(CFrame.new(-4972.6792, 56.8382607, 164.385254, 0, 0, -1, 0, 1, 0, 1, 0, 0))
         end
     end)
     
@@ -4650,26 +4717,26 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         if First_Sea then
             TP(CFrame.new(6729.3916015625, 103.67321777344, 952.03881835938))
         elseif Second_Sea then
-            TP(CFrame.new(2698.6772460938, 223.11566162109, 6.6630764007568))
+            TP(CFrame.new(-4602.41064, 219.515137, -65.5167236, -0.414307475, 0, 0.910136938, 0, 1, 0, -0.910136938, 0, -0.414307475))
         end
     end)
     
-    if not Dungeon_Sea then
+    
         Teleport:AddLabelRight("In Dungeon Only!")
-    end
+
     
     if Dungeon_Sea then
         Teleport:AddToggleRight("Auto Farm Dungeon",_G.AutoFarmDungeon,function(value)
             _G.AutoFarmDungeon = value
         end)
     
-        _G.SaveAt = 30
-        Teleport:AddSliderRight("Save At",1,100,30,function(value)
+        _G.SaveAt = 70
+        Teleport:AddSliderRight("Save At",1,100,70,function(value)
             _G.SaveAt = value
         end)
     
-        DistanceDungeon = 2
-        Teleport:AddSliderRight("Distance",1,100,2,function(value)
+        DistanceDungeon = 10
+        Teleport:AddSliderRight("Distance",1,100,10,function(value)
             DistanceDungeon = value
         end)
     
@@ -4836,7 +4903,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                     if First_Sea then
                         TP(CFrame.new(2027.9697265625, 48.14053726196289, -1737.6326904296875))
                     elseif Second_Sea then
-                        TP(CFrame.new(2362.600341796875, 57.83930969238281, 259.5265808105469))
+                        TP(game:GetService("Workspace").AllNPC.ARandomFruit.HumanoidRootPart.CFrame)
                     end
                     wait(.5)
                     game:GetService("ReplicatedStorage").Remotes.Functions.CheckQuest:InvokeServer(workspace.AntiTPNPC.ARandomFruit)
@@ -4867,7 +4934,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                     if First_Sea then
                         TP(CFrame.new(2027.9697265625, 48.14053726196289, -1737.6326904296875))
                     elseif Second_Sea then
-                        TP(CFrame.new(2362.600341796875, 57.83930969238281, 259.5265808105469))
+                        TP(game:GetService("Workspace").AllNPC.ARandomFruit.HumanoidRootPart.CFrame)
                     end
                     wait(.5)
                     game:GetService("ReplicatedStorage").Remotes.Functions.CheckQuest:InvokeServer(workspace.AntiTPNPC.ARandomFruit)
