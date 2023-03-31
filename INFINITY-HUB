@@ -4721,8 +4721,24 @@ Main:AddSeperatorLeft("Lucidus's Coat")
             end
         end)
     end
+    Teleport:AddSeperatorLeft("Teleport Npc")
+    NPC = {}
+    for i,v in pairs(game:GetService("Workspace").AllNPC:GetChildren()) do
+        table.insert(NPC,v.Name)
+    end
     
+    Teleport:AddDropdownLeft("Select Npc",NPC,function(a)
+        _G.TPNPC = a
+    end)
     
+    Teleport:AddButtonLeft("TP To Npc",function()
+         for i,v in pairs(game:GetService("Workspace").AllNPC:GetChildren()) do
+        if v.Name == _G.TPNPC then
+        TP(v.HumanoidRootPart.CFrame)
+        end
+        end
+        end)
+        
     
     Teleport:AddSeperatorLeft("Island")
     
