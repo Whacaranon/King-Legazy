@@ -3398,7 +3398,38 @@ function WTF(x,y,z)
 		end;
 	end;
 end;
+
+
+Main:AddSeperatorLeft('')
+
+    Main:AddTextboxLeft("job id ","...",true,function(s)
+    _G.jobid = s
+    end)
     
+    Main:AddButtonLeft("Copy Job id",function()
+    setclipboard(tostring(game.JobId))
+    end)
+                
+         Main:AddButtonLeft("Join Job",function(s)
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, _G.jobid)
+
+        end)
+
+        Main:AddToggleLeft("Auto Spam Join Job",_G.AutoSpamJoinJob,function(s)
+            _G.AutoSpamJoinJob = s
+
+        end)
+
+        spawn(function()
+            while wait() do
+pcall(function()
+    if _G.AutoSpamJoinJob then
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, _G.jobid)
+    end
+end)
+end
+end)
+
     Main:AddSeperatorLeft("Main")
     
     Main:AddToggleLeft("Auto Farm Level",_G.AutoFarm,function(value)
