@@ -1188,7 +1188,7 @@ Frame.Name = "Frame"
 Frame.Parent = DropSizeFrame
 Frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
 Frame.BorderSizePixel = 0
-Frame.Position = UDim2.new(0, 3, 0, 0)
+Frame.Position = UDim2.new(0, 1, 0, 0)
 Frame.Size = UDim2.new(0, 278, 0, 60)
 
 UIStroke.Name = "UIStroke"
@@ -1502,7 +1502,7 @@ Frame1.Name = "Frame"
 Frame1.Parent = DropSizeFrame1
 Frame1.BackgroundColor3 = Color3.fromRGB(30,30,30)
 Frame1.BorderSizePixel = 0
-Frame1.Position = UDim2.new(0, 3, 0, 0)
+Frame1.Position = UDim2.new(0, 1, 0, 0)
 Frame1.Size = UDim2.new(0, 278, 0, 60)
 
 UIStroke1.Name = "UIStroke"
@@ -1821,7 +1821,7 @@ SliderFrame_2.Parent = SliderFrame
 SliderFrame_2.BackgroundColor3 = Color3.fromRGB(30,30,30)
 SliderFrame_2.BackgroundTransparency = 0
 SliderFrame_2.BorderSizePixel = 0
-SliderFrame_2.Position = UDim2.new(0, 0.5, 0, 0)
+SliderFrame_2.Position = UDim2.new(0, 1, 0, 0)
 SliderFrame_2.Size = UDim2.new(0, 278, 0, 55)
 
 UIStroke.Name = "UIStroke"
@@ -2164,7 +2164,7 @@ SliderFrame_22.Parent = SliderFramee
 SliderFrame_22.BackgroundColor3 = Color3.fromRGB(30,30,30)
 SliderFrame_22.BackgroundTransparency = 0
 SliderFrame_22.BorderSizePixel = 0
-SliderFrame_22.Position = UDim2.new(0, 0.5, 0, 0)
+SliderFrame_22.Position = UDim2.new(0, 1, 0, 0)
 SliderFrame_22.Size = UDim2.new(0, 278, 0, 55)
 
 UIStrokee.Name = "UIStroke"
@@ -3131,7 +3131,7 @@ local RenUi = Update:AddWindow("Infinity Hub","10039618734",Enum.KeyCode.RightCo
     game:GetService("RunService").Stepped:Connect(function()
         pcall(function()
             
-            if _G.AutolCODE or _G.AutoGhostShip or _G.MobAura or _G.AutoLucidus or _G.AutoHydra or _G.AutoBoss or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
+            if _G.AutolCODE or _G.AutoGhostShip or _G.MobAura or _G.AutoTengu or _G.AutoLucidus or _G.AutoHydra or _G.AutoBoss or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
 if syn then
 					setfflag("HumanoidParallelRemoveNoPhysics", "False")
 					setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -3170,7 +3170,7 @@ end)
     
     spawn(function()
         while wait() do
-            if _G.AutolCODE or _G.MobAura or _G.AutoGhostShip or _G.AutoLucidus or _G.AutoHydra or _G.AutoBoss or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
+            if _G.AutolCODE or _G.MobAura or _G.AutoTengu or _G.AutoGhostShip or _G.AutoLucidus or _G.AutoHydra or _G.AutoBoss or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
                 pcall(function()
                     game:GetService("Players").LocalPlayer.Character.Services.Client.KenEvent:InvokeServer(true)
                 end)
@@ -3181,7 +3181,7 @@ end)
     spawn(function()
         pcall(function()
             game:GetService("RunService").Stepped:Connect(function()
-                if _G.AutolCODE or _G.MobAura or _G.AutoLucidus or _G.AutoSantaEvents or _G.AutoBoss or _G.AutoHydra or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma or _G.NoClip then
+                if _G.AutolCODE or _G.MobAura or _G.AutoTengu or _G.AutoLucidus or _G.AutoSantaEvents or _G.AutoBoss or _G.AutoHydra or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma or _G.NoClip then
                     for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
                         if v:IsA("BasePart") then
                             v.CanCollide = false    
@@ -3345,11 +3345,14 @@ end)
 end) 
     
     Wapon = {}
-    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-        if v:IsA("Tool") then
-            table.insert(Wapon,v.Name)
+    
+    
+           for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+            if v:IsA("Tool") then
+             table.insert(Wapon,v.Name)
         end
-    end
+         end
+            
     
     local SelectWeapon = Main:AddDropdownRight("Select Weapon",Wapon,function(value)
         _G.SelectWeapon = value
@@ -3358,11 +3361,6 @@ end)
     Main:AddButtonRight("Refresh Weapon",function()
         SelectWeapon:Clear()
         for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-            if v:IsA("Tool") then
-                SelectWeapon:Add(v.Name)
-            end
-        end
-        for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
             if v:IsA("Tool") then
                 SelectWeapon:Add(v.Name)
             end
@@ -3474,7 +3472,7 @@ local Swordn = game:GetService("Players").LocalPlayer.PlayerStats.SwordName.Valu
 spawn(function()
     while wait() do
         pcall(function()
-            if _G.AutolCODE or _G.AutoLucidus or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
+            if _G.AutolCODE or _G.AutoLucidus or _G.AutoTengu or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
                 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
 end
 end)
@@ -3484,7 +3482,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if _G.AutolCODE or _G.AutoLucidus or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
+            if _G.AutolCODE or _G.AutoTengu or _G.AutoLucidus or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
 end
 end)
@@ -3630,9 +3628,6 @@ BossRE = Main:AddDropdownLeft("Select Boss",Boss,function(a)
         for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
                 BossRE:Add(v.Name)
 end
-        for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
-                BossRE:Add(v.Name)
-            end
     end)
     
     Main:AddToggleLeft("Auto Boss",_G.AutoBoss,function(a)
@@ -4460,15 +4455,19 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     end
+    Main:AddSeperatorLeft("Tengu Mask")
+    Main:AddToggleLeft("Auto Tengu Mask",_G.AutoTengu,function(a)
+        _G.AutoTengu = a
+        end)
+    
 Main:AddSeperatorLeft("Lucidus's Coat")
-    
-    
+
     spawn(function()
         while wait() do
-            if _G.AutoLucidus then
+            if _G.AutoTengu then
                 pcall(function()
-                    if game.Players.LocalPlayer.Backpack:FindFirstChild("Lucidus's Totem") or game.Players.LocalPlayer.Character:FindFirstChild("Lucidus's Totem") or game:GetService("Players").LocalPlayer.PlayerGui.Stats.Button.Inventory_Frame.ScrollingFrameMaterial["Lucidus's Totem"] then
-                        TP(game:GetService("Workspace").AllNPC.QuestLvl3575.HumanoidRootPart.CFrame)
+                    if game.Players.LocalPlayer.Backpack:FindFirstChild("Ice Crystal") or game.Players.LocalPlayer.Character:FindFirstChild("Ice Crystal") or game:GetService("Players").LocalPlayer.PlayerGui.Stats.Button.Inventory_Frame.ScrollingFrameMaterial["Ice Crystal"] then
+                        TP(game:GetService("Workspace").AllNPC.QuestLvl3350.HumanoidRootPart.CFrame)
                                          Click()
                         for i,v in pairs(game.Players.LocalPlayer.PlayerGui:GetDescendants()) do
                             if v.Name == "Dialogue" then
@@ -4485,14 +4484,16 @@ Main:AddSeperatorLeft("Lucidus's Coat")
             end
         end
     end)
-    
+   
+  
+   
      spawn(function()
         while wait() do
-            if _G.AutoLucidus then
+            if _G.AutoTengu then
                 pcall(function()
-                        if game:GetService("Workspace").Monster.Boss:FindFirstChild("Lucidus [Lv. 3575]") then
+                        if game:GetService("Workspace").Monster.Boss:FindFirstChild("The Ice King [Lv. 3350]") then
                             for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
-                                if v.Name == "Lucidus [Lv. 3575]" and v.Humanoid.Health > 0 then
+                                if v.Name == "The Ice King [Lv. 3350]" and v.Humanoid.Health > 0 then
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
@@ -4504,16 +4505,16 @@ Main:AddSeperatorLeft("Lucidus's Coat")
                                             UseSkill("V")
                                         end
                                        
-                                    until _G.AutoLucidus == false or v.Humanoid.Health <= 0
+                                    until  _G.AutoTengu  == false or v.Humanoid.Health <= 0
                                 end
                             end
                         else
-                            if game:GetService("ReplicatedStorage").MOB:FindFirstChild("Lucidus [Lv. 3575]") then
-                                TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild("Lucidus [Lv. 3575]").HumanoidRootPart.CFrame * MethodFarm)
+                            if game:GetService("ReplicatedStorage").MOB:FindFirstChild("The Ice King [Lv. 3350]") then
+                                TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild("The Ice King [Lv. 3350]").HumanoidRootPart.CFrame * MethodFarm)
                             else
-                                if game:GetService("Workspace").Monster.Boss:FindFirstChild("Azlan [Lv. 3300]") then
-                                    for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
-                                        if v.Name == "Hefty [Lv. 3550]" and v.Humanoid.Health > 0 then
+                                if game:GetService("Workspace").Monster.Mon:FindFirstChild("Azlan [Lv. 3300]") then
+                                    for i,v in pairs(game:GetService("Workspace").Monster.Mon:GetChildren()) do
+                                        if v.Name == "Azlan [Lv. 3300]" and v.Humanoid.Health > 0 then
                                             repeat task.wait()
                                                 AutoHaki()
                                                 EquipWeapon(_G.SelectWeapon)
@@ -4525,7 +4526,7 @@ Main:AddSeperatorLeft("Lucidus's Coat")
                                                     UseSkill("V")
                                                 end
                                                
-                                            until _G.AutoLucidus == false or v.Humanoid.Health <= 0
+                                            until _G.AutoTengu == false or v.Humanoid.Health <= 0
                                         end
                                     end
                                 else
@@ -4539,8 +4540,8 @@ Main:AddSeperatorLeft("Lucidus's Coat")
                             end
         end
     end)
-    
 
+ 
 
     if Second_Sea then
     Main:AddToggleLeft("Auto Lucidus",_G.AutoLucidus,function(value)
@@ -4848,8 +4849,17 @@ Main:AddSeperatorLeft("Lucidus's Coat")
         table.insert(NPC,v.Name)
     end
     
-    Teleport:AddDropdownLeft("Select Npc",NPC,function(a)
+   NPCTP = Teleport:AddDropdownLeft("Select Npc",NPC,function(a)
         _G.TPNPC = a
+    end)
+    Teleport:AddButtonLeft('Refresh NPC',function()
+     NPCTP:Clear()
+        for i,v in pairs(game:GetService("Workspace").AllNPC:GetChildren()) do
+                NPCTP:Add(v.Name)
+end
+        for i,v in pairs(game:GetService("Workspace").AllNPC:GetChildren()) do
+                NPCTP:Add(v.Name)
+            end
     end)
     
     Teleport:AddButtonLeft("TP To Npc",function()
@@ -5325,3 +5335,36 @@ Main:AddSeperatorLeft("Lucidus's Coat")
             end
         end
     end)
+    Misc:AddSeperatorRight("Equip Weapon")
+    ACC = {}
+    for i,v in pairs(game:GetService("Players").LocalPlayer.Accessories:GetChildren()) do
+        table.insert(ACC,v.Name)
+        end
+    
+    Misc:AddDropdownRight("Select Accessories",ACC,function(a)
+        _G.Accessoriesep = a
+    end)
+    
+    Misc:AddButtonRight("Equip Accessories",function()
+ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("AccessoryEq"):InvokeServer(_G.Accessoriesep)
+     
+                
+                
+    end)
+               
+               Sw = {}
+               for i,v in pairs(game:GetService("Players").LocalPlayer.PlayerGui.Stats.Button.Inventory_Frame.ScrollingFrame:GetChildren()) do
+                   table.insert(Sw,v.Name)
+                   end
+
+        Misc:AddDropdownRight("Select Sword",Sw,function(a)
+            _G.Swordeq = a
+            end)
+        Misc:AddButtonRight("Equip Sword",function()
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("InventoryEq"):InvokeServer(_G.Swordeq)
+     
+                
+                
+    end)
+        
+        
