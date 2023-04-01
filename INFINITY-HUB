@@ -1,5 +1,5 @@
 
-setfpscap(240)
+setfpscap(60)
 if game.PlaceId == 4520749081 or game.PlaceId == 6381829480 or game.PlaceId == 5931540094 or game.PlaceId == 5931540094 then
 end
 local ZenHub = Instance.new("ScreenGui")
@@ -3918,6 +3918,23 @@ end
     
     Main:AddSeperatorLeft("Saber")
     
+    saber  =  Main:AddLabelLeft("")
+     function i1oepu()
+                    if game:GetService("Workspace").Monster.Boss:FindFirstChild("Expert Swordman [Lv. 3000]") then
+              saber:Set("Expert Swordman : 🟢")   
+                else
+                    saber:Set("Expert Swordman : 🔴")    
+                end
+                end
+
+         spawn(function()
+        while task.wait() do
+            pcall(function()
+                i1oepu()
+            end)
+        end
+         end)
+    
     Main:AddToggleLeft("Auto Saber",_G.AutoSaber,function(value)
         _G.AutoSaber = value
         StopNoClip(_G.AutoSaber)
@@ -4230,7 +4247,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
   
 
              function t1y1()
-    		if game:GetService("Workspace").Monster.Boss:FindFirstChild("Ms. Mother [Lv.7500]") then
+                    if game:GetService("Workspace").Monster.Boss:FindFirstChild("Ms. Mother [Lv. 7500]") then
               Bigmom:Set("Big Mom : 🟢")   
                 else
                     Bigmom:Set("Big Mom : 🔴")    
@@ -4464,13 +4481,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                                 AutoHaki()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 TP(v.HumanoidRootPart.CFrame * MethodFarm)
-                                                if _G.AutoSkill then 
-                                                    UseSkill("Z")
-                                                    UseSkill("X")
-                                                    UseSkill("C")
-                                                    UseSkill("V")
-                                                end
-                                               
                                             until _G.AutoKaido == false or v.Humanoid.Health <= 0
                                         end
                                     end
@@ -4888,9 +4898,7 @@ Main:AddSeperatorLeft("Lucidus's Coat")
         for i,v in pairs(game:GetService("Workspace").AllNPC:GetChildren()) do
                 NPCTP:Add(v.Name)
 end
-        for i,v in pairs(game:GetService("Workspace").AllNPC:GetChildren()) do
-                NPCTP:Add(v.Name)
-            end
+      
     end)
     
     Teleport:AddButtonLeft("TP To Npc",function()
@@ -5366,6 +5374,112 @@ end
             end
         end
     end)
+    Misc:AddSeperatorRight("Boots")
+    Misc:AddButtonRight("FPS Boots",function()
+            local decalsyeeted = true 
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = false
+l.FogEnd = 100000
+l.Brightness = 0
+settings().Rendering.QualityLevel = "Level01"
+for i,v in pairs(g:GetDescendants()) do
+    if v:IsA("Part") or v:IsA("Union") or v:IsA("MeshPart") then
+        v.Material = "Plastic"
+v.Reflectance = 0
+elseif v:IsA("Decal") and decalsyeeted then 
+v.Transparency = 1
+elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then 
+v.Lifetime = NumberRange.new(0)
+    end
+end
+end)
+    
+    Misc:AddSeperatorRight("Unlock Gamepass")
+    Misc:AddButtonRight("Unlock Legazy pose",function()
+    local a=Instance.new("Tool",game:GetService("Players").LocalPlayer.Backpack);
+    a.Name="LegacyPose";
+    a.TextureId="rbxassetid://6886064327";
+    local PL=Instance.new("MeshPart",a);
+    PL.Name="Handle";PL.MeshId="rbxassetid://6867982510";
+end)
+
+task.spawn(function()
+    while true do wait(1);
+        pcall(function()
+            local a;for kv,Jv in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren())do 
+                if Jv.Name=="LegacyPose"and not Jv:FindFirstChild("DevilFruit")then 
+                    a=Jv;
+                end;
+            end;
+            for gf,Of in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren())do 
+                if Of.Name=="LegacyPose"and not Of:FindFirstChild("DevilFruit")then 
+                    a=Of;
+                end;
+            end;
+            if a~=nil then 
+                local pu=game:GetService("Players").LocalPlayer;
+                local Tu=pu.Character;
+                local Au=nil;
+                local Xu=Tu:WaitForChild("HumanoidRootPart");
+                local Eu=Tu:WaitForChild("Humanoid");
+                local Iu=game:GetService("RunService");
+                if not a:FindFirstChild("DevilFruit")then 
+                    local qp=Instance.new("IntValue",a);
+                    qp.Name="DevilFruit";
+                    a.Equipped:Connect(function()Au=true;
+                        local gd=nil;
+                        local Ud=nil;
+                        while true do 
+                            local Zq=workspace.Areas:FindFirstChild("LegacyIslandArea");
+                            if Zq then 
+                                if not gd then gd=game.ReplicatedStorage.Chest.Etc.Arrow:Clone();
+                                    gd.Parent=workspace.Effects;
+                                end;
+                                gd.CFrame=CFrame.new(Xu.Position,Xu.Position+(Zq.Position-Xu.Position).Unit*Vector3.new(1,0,1))*CFrame.new(0,0,-3);
+                                gd.Transparency=math.abs(math.sin(tick()*1))*0.5;
+                            end;
+                            local mq=workspace:FindFirstChild("GhostMonster");
+                            if mq then local Cq=mq:FindFirstChild("Ghost Ship");
+                                if Cq then 
+                                    if not Ud then 
+                                    Ud=game.ReplicatedStorage.Chest.Etc.Arrow:Clone();
+                                    Ud.Color=Color3.fromRGB(148,190,129);
+                                    Ud.Parent=workspace.Effects;
+                                end;
+                                Ud.CFrame=CFrame.new(Xu.Position,Xu.Position+(Cq.Hitbox.Position-Xu.Position).Unit*Vector3.new(1,0,1))*CFrame.new(0,0,-3);
+                                Ud.Transparency=math.abs(math.sin(tick()*1))*0.5;
+                            end;
+                        end;
+                        if Eu.Health<=0 then 
+                            break;
+                        end;
+                        if not Au then 
+                            break;
+                        end;
+                        Iu.Heartbeat:Wait();
+                    end;
+                    if gd then 
+                        gd:Destroy();
+                    end;
+                    if Ud then 
+                        Ud:Destroy();
+                    end;
+                end);
+                a.Unequipped:Connect(function()Au=nil;
+                end);
+            end;
+        end;
+    end);
+end;
+end);
+
     Misc:AddSeperatorRight("Equip Weapon")
     ACC = {}
     for i,v in pairs(game:GetService("Players").LocalPlayer.Accessories:GetChildren()) do
