@@ -3304,6 +3304,23 @@ local blackscreen = function(enable)
     uiFrame.Position = UDim2.new(0, 0, -5, 0)
 end
     
+    Main:AddToggleRight("Remove Effects",_G.Remove_effects,function(a)
+        _G.Remove_effects = a
+        end)
+    
+    spawn(function()
+        while wait() do
+            pcall(function()
+                if _G.Remove_effects then
+                     for i,v in pairs(game:GetService("Workspace").Effects:GetChildren()) do
+                     v.Destroy()
+                end
+                end
+            end)
+        end
+    end)
+
+    
         Main:AddToggleRight("Black Screen",_G.BlackScreen,function(value)
     _G.BlackScreen = value
 if _G.BlackScreen == true then
@@ -3672,8 +3689,10 @@ end
 
     Main:AddToggleLeft("Auto Sea King",_G.AutoSeaking,function(value)
         _G.AutoSeaking = value
+         
         game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("AccessoryEq"):InvokeServer("Sea King Jaw")
         StopNoClip(_G.AutoSeaking)
+  
     end)
     
     
@@ -3682,6 +3701,25 @@ end
         _G.AutoSeaking_Hop = value
     end)
     
+    spawn(function()
+        while wait() do
+            if _G.AutoSeaking then
+                pcall(function()
+                    if not game:GetService("Workspace").SeaMonster:FindFirstChild("SeaKing") then
+                            if game:GetService("Workspace").Island:FindFirstChild("Legacy Island1") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island1").ChestSpawner.CFrame * CFrame.new(0,0,2))
+                            elseif game:GetService("Workspace").Island:FindFirstChild("Legacy Island2") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island2").ChestSpawner.CFrame * CFrame.new(0,0,2))
+                            elseif game:GetService("Workspace").Island:FindFirstChild("Legacy Island3") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island3").ChestSpawner.CFrame * CFrame.new(0,0,2))
+                            elseif game:GetService("Workspace").Island:FindFirstChild("Legacy Island4") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island4").ChestSpawner.CFrame * CFrame.new(0,0,2))
+                            end
+                            end
+                    end)
+                end
+        end
+    end)
     spawn(function()
         while wait() do
             if _G.AutoSeaking then
@@ -3711,11 +3749,7 @@ end
                             elseif game:GetService("Workspace").Island:FindFirstChild("Legacy Island4") then
                                 TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island4").ChestSpawner.CFrame * CFrame.new(0,0,2))
                             
-                        elseif not game:GetService("Workspace").SeaMonster:FindFirstChild("SeaKing") then
-                            TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island1").ChestSpawner.CFrame * CFrame.new(0,0,2))
-                                                        TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island2").ChestSpawner.CFrame * CFrame.new(0,0,2))
-                                TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island3").ChestSpawner.CFrame * CFrame.new(0,0,2))
-                                TP(game:GetService("Workspace").Island:FindFirstChild("Legacy Island4").ChestSpawner.CFrame * CFrame.new(0,0,2))
+                       
                  end
                    end
                     end
@@ -3759,6 +3793,43 @@ Main:AddSeperatorLeft("Hydra")
         end
          end)
 
+HydraIsland = Main:AddLabelLeft("")
+
+function iopuw()
+    		if game:GetService("Workspace").Island:FindFirstChild("Sea King Thunder") or game:GetService("Workspace").Island:FindFirstChild("Sea King Lava") or game:GetService("Workspace").Island:FindFirstChild("Sea King Water") then
+              HydraIsland:Set("Hydra Island : 🟢")   
+                else
+                    HydraIsland:Set("Hydra Island : 🔴")    
+                end
+                end
+
+         spawn(function()
+        while task.wait() do
+            pcall(function()
+                iopuw()
+            end)
+        end
+         end)
+
+ spawn(function()
+        while wait() do
+            if _G.AutoHydra then
+                pcall(function()
+                    if not game:GetService("Workspace").SeaMonster:FindFirstChild("HydraSeaKing") then
+                           if game:GetService("Workspace").Island:FindFirstChild("Sea King Thunder") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Sea King Thunder").HydraStand.CFrame)
+                            elseif game:GetService("Workspace").Island:FindFirstChild("Sea King Lava") then
+                            TP(game:GetService("Workspace").Island:FindFirstChild("Sea King Lava").HydraStand.CFrame)
+                            elseif game:GetService("Workspace").Island:FindFirstChild("Sea King Water") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Sea King Water").HydraStand.CFrame)
+                                
+                            end
+                            end
+                    end)
+                end
+        end
+    end)
+
 Main:AddToggleLeft("Auto Hydra",_G.AutoHydra,function(value)
         _G.AutoHydra = value
         StopNoClip(_G.AutoSeaking)
@@ -3788,11 +3859,12 @@ Main:AddToggleLeft("Auto Hydra",_G.AutoHydra,function(value)
                                 until v.Humanoid.Health <= 0 or not _G.AutoHydra or not game:GetService("Workspace").SeaMonster:FindFirstChild("HydraSeaKing")                       
                             end
                         else
-                            if game:GetService("Workspace").Island["Sea King Thunder"] then
-                                TP(game:GetService("Workspace").Island["Sea King Thunder"].HydraStand.CFrame)
-                            elseif game:GetService("Workspace").Island["Sea King Lava"] then
-                            TP(game:GetService("Workspace").Island["Sea King Lava"].HydraStand.CFrame)
-
+                              if game:GetService("Workspace").Island:FindFirstChild("Sea King Thunder") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Sea King Thunder").HydraStand.CFrame)
+                            elseif game:GetService("Workspace").Island:FindFirstChild("Sea King Lava") then
+                            TP(game:GetService("Workspace").Island:FindFirstChild("Sea King Lava").HydraStand.CFrame)
+                            elseif game:GetService("Workspace").Island:FindFirstChild("Sea King Water") then
+                                TP(game:GetService("Workspace").Island:FindFirstChild("Sea King Water").HydraStand.CFrame)
                             end
                         end
                     end
@@ -4038,7 +4110,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                         UseSkill("C")
                                         UseSkill("V")
                                     end
-                                until v.Humanoid.Health <= 0 or not _G.AutoGhostShip or not game:GetService("Workspace").GhostMonster:FindFirstChild("Ghost Ship")
+                                until v.Humanoid.Health <= 0 or not _G.AutoGhostShip or not game:GetService("Workspace").GhostMonster:FindFirstChild("Ghost Ship") or game:GetService("Workspace"):FindFirstChild("Chest1")
                             end
                         end
                     else
@@ -4154,14 +4226,13 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     Main:AddToggleLeft("Auto Big Mom Boss Hop",_G.AutoBigMomBoss_Hop,function(value)
         _G.AutoBigMomBoss_Hop = value
     end)
-    
     spawn(function()
         while wait() do
             if _G.AutoBigMomBoss then
                 pcall(function()
-                    if game:GetService("Workspace").Monster.Boss:FindFirstChild("Ms. Mother [Lv.7500]") then
+                    if game:GetService("Workspace").Monster.Boss:FindFirstChild("Ms. Mother [Lv. 7500]") then
                         for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
-                            if v.Name == "Ms. Mother [Lv.7500]" and v.Humanoid.Health > 0 then
+                            if v.Name == "Ms. Mother [Lv. 7500]" and v.Humanoid.Health > 0 then
                                 repeat task.wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
@@ -4179,8 +4250,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                             end
                         end
                     else
-                        if game:GetService("ReplicatedStorage").MOB:FindFirstChild("Ms. Mother [Lv.7500]") then
-                            TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild("Ms. Mother [Lv.7500]").HumanoidRootPart.CFrame * MethodFarm)
+                        if game:GetService("ReplicatedStorage").MOB:FindFirstChild("Ms. Mother [Lv. 7500]") then
+                            TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild("Ms. Mother [Lv. 7500]").HumanoidRootPart.CFrame * MethodFarm)
                         else 
                             if _G.AutoBigMomBoss_Hop then
                                 Hop()
@@ -4303,14 +4374,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
         end
     end)
     end
-     Main:AddToggleLeft("Auto Summon Kaido",_G.AutoKaido2,function(value)
-        _G.AutoKaido2 = value
-        StopNoClip(_G.AutoKaido2)
-    end)
+    
     
     spawn(function()
         while wait() do
-            if _G.AutoKaido2 then
+            if _G.AutoKaido then
                 pcall(function()
                     if game.Players.LocalPlayer.Backpack:FindFirstChild("Gem") or game.Players.LocalPlayer.Character:FindFirstChild("Gem") or game:GetService("Players").BKLONZ.PlayerGui.Stats.Button.Inventory_Frame.ScrollingFrameMaterial["Dragon's Orb"] then
                         TP(CFrame.new(-5997.81201, 459.904358, 7294.52148, -0.26096487, 0, 0.965348303, 0, 1, 0, -0.965348303, 0, -0.26096487))
@@ -4393,14 +4461,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
     end)
     end
 Main:AddSeperatorLeft("Lucidus's Coat")
-     Main:AddToggleLeft("Auto Summon Lucidus",_G.AutoLucidus2,function(value)
-        _G.AutoLucidus2 = value
-        StopNoClip()
-    end)
+    
     
     spawn(function()
         while wait() do
-            if _G.AutoLucidus2 then
+            if _G.AutoLucidus then
                 pcall(function()
                     if game.Players.LocalPlayer.Backpack:FindFirstChild("Lucidus's Totem") or game.Players.LocalPlayer.Character:FindFirstChild("Lucidus's Totem") or game:GetService("Players").LocalPlayer.PlayerGui.Stats.Button.Inventory_Frame.ScrollingFrameMaterial["Lucidus's Totem"] then
                         TP(game:GetService("Workspace").AllNPC.QuestLvl3575.HumanoidRootPart.CFrame)
@@ -4421,6 +4486,62 @@ Main:AddSeperatorLeft("Lucidus's Coat")
         end
     end)
     
+     spawn(function()
+        while wait() do
+            if _G.AutoLucidus then
+                pcall(function()
+                        if game:GetService("Workspace").Monster.Boss:FindFirstChild("Lucidus [Lv. 3575]") then
+                            for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
+                                if v.Name == "Lucidus [Lv. 3575]" and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        TP(v.HumanoidRootPart.CFrame * MethodFarm)
+                                        if _G.AutoSkill then 
+                                            UseSkill("Z")
+                                            UseSkill("X")
+                                            UseSkill("C")
+                                            UseSkill("V")
+                                        end
+                                       
+                                    until _G.AutoLucidus == false or v.Humanoid.Health <= 0
+                                end
+                            end
+                        else
+                            if game:GetService("ReplicatedStorage").MOB:FindFirstChild("Lucidus [Lv. 3575]") then
+                                TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild("Lucidus [Lv. 3575]").HumanoidRootPart.CFrame * MethodFarm)
+                            else
+                                if game:GetService("Workspace").Monster.Boss:FindFirstChild("Azlan [Lv. 3300]") then
+                                    for i,v in pairs(game:GetService("Workspace").Monster.Boss:GetChildren()) do
+                                        if v.Name == "Hefty [Lv. 3550]" and v.Humanoid.Health > 0 then
+                                            repeat task.wait()
+                                                AutoHaki()
+                                                EquipWeapon(_G.SelectWeapon)
+                                                TP(v.HumanoidRootPart.CFrame * MethodFarm)
+                                                if _G.AutoSkill then 
+                                                    UseSkill("Z")
+                                                    UseSkill("X")
+                                                    UseSkill("C")
+                                                    UseSkill("V")
+                                                end
+                                               
+                                            until _G.AutoLucidus == false or v.Humanoid.Health <= 0
+                                        end
+                                    end
+                                else
+                                    if game:GetService("ReplicatedStorage").MOB:FindFirstChild("Azlan [Lv. 3300]") then
+                                        TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild(" Azlan [Lv. 3300]").HumanoidRootPart.CFrame * MethodFarm)
+                                    end
+                                end
+                            end 
+                        end
+                        end)
+                            end
+        end
+    end)
+    
+
+
     if Second_Sea then
     Main:AddToggleLeft("Auto Lucidus",_G.AutoLucidus,function(value)
         _G.AutoLucidus = value
