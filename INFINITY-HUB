@@ -3252,7 +3252,7 @@ end)
     Date = os.date("%d".." ".."%B".." ".."%Y")
     Main:AddLabelLeft("Day : "..Date)
     
-   
+
     
     Main:AddDropdownRight("Select Method",{"Behind","Below","Upper"},function(value)
         _G.Method = value
@@ -3262,21 +3262,21 @@ end)
         while wait() do 
             pcall(function()
                 if _G.Method == "Behind" then
-                    MethodFarm = CFrame.new(0,0,_G.DistanceMob)
+                    MethodFarm = CFrame.new(0,0,DistanceMob)
                 elseif _G.Method == "Below" then
-                    MethodFarm = CFrame.new(0,-_G.DistanceMob,0) * CFrame.Angles(math.rad(90),0,0)
+                    MethodFarm = CFrame.new(0,-DistanceMob,0) * CFrame.Angles(math.rad(90),0,0)
                 elseif _G.Method == "Upper" then
-                    MethodFarm = CFrame.new(0,_G.DistanceMob,0)  * CFrame.Angles(math.rad(-90),0,0)
+                    MethodFarm = CFrame.new(0,DistanceMob,0)  * CFrame.Angles(math.rad(-90),0,0)
                 else
-                    MethodFarm = CFrame.new(0,0,_G.DistanceMob)
+                    MethodFarm = CFrame.new(0,0,DistanceMob)
                 end
             end)
         end
     end)
     
-    _G.DistanceMob = 10
-    Main:AddSliderRight("Distance",1,100,10,function(value)
-        _G.DistanceMob = value
+    DistanceMob = 10
+    Main:AddSliderRight("Distance",1,100,DistanceMob,function(value)
+        DistanceMob = value
     end)
     
     Main:AddToggleRight("Auto Skill",_G.AutoSkill,function(value)
@@ -3503,7 +3503,7 @@ local Swordn = game:GetService("Players").LocalPlayer.PlayerStats.SwordName.Valu
 spawn(function()
     while wait() do
         pcall(function()
-            if _G.AutolCODE or _G.AutoLucidus or _G.AutoTengu or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
+            if _G.AutolCODE or _G.AutoLucidus or _G.AutoSaber or _G.AutoTengu or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
                 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
 end
 end)
@@ -3513,7 +3513,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if _G.AutolCODE or _G.AutoTengu or _G.AutoLucidus or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
+            if _G.AutolCODE or _G.AutoTengu or _G.AutoSaber or _G.AutoLucidus or _G.MobAura or _G.AutoFarmDungeon or _G.AutoFarm or _G.AutoKaido or _G.AutoBoss or _G.AutoGhostShip or _G.AutoSeaking or _G.AutoEnma or _G.AutoBisento or _G.AutoBigMomBoss or _G.AutoHydra then
 game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
 end
 end)
@@ -4070,9 +4070,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
-                                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("SW_".._G.SelectWeapon.."_M1")
-game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Functions"):WaitForChild("SkillAction"):InvokeServer("FS_".._G.SelectWeapon.."_M1")
-
                                     if _G.AutoSkill then 
                                         UseSkill("Z")
                                         UseSkill("X")
