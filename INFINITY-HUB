@@ -2861,8 +2861,9 @@ local RenUi = Update:AddWindow("Infinity Hub","10039618734",Enum.KeyCode.RightCo
         task.spawn(function()
     game:GetService("RunService").Stepped:Connect(function()
         pcall(function()
-            
             if _G.AutolCODE or _G.AutoGhostShip or _G.MobAura or _G.AutoTengu or _G.AutoLucidus or _G.AutoHydra or _G.AutoBoss or _G.AutoSantaEvents or _G.AutoSecondSea or _G.AutoXmas or _G.AutoSeaking or _G.AutoBigMomBlade or _G.AutoBigMomBoss or _G.AutoKaido or _G.AutoSaber or _G.AutoKillply or _G.AutoFarm or _G.AutoBisento or _G.AutoFarmDungeon or _G.AutoKillply or _G.AutoEnma then
+					
+				if syn or not syn then
 					setfflag("HumanoidParallelRemoveNoPhysics", "False")
 					setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
 					game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
@@ -2886,6 +2887,7 @@ local RenUi = Update:AddWindow("Infinity Hub","10039618734",Enum.KeyCode.RightCo
 						if v:IsA("BasePart") then
 							v.CanCollide = false    
 						end
+					end
 				end
 			else
 				if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
