@@ -4217,8 +4217,11 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                         TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild("Elite Skeleton [Lv. 3100]").HumanoidRootPart.CFrame * MethodFarm)
                                     end
                                 end
+                            else
+                                TP(CFrame.new(-5997.81201, 459.904358, 7294.52148, -0.26096487, 0, 0.965348303, 0, 1, 0, -0.965348303, 0, -0.26096487))
+
                             end 
-                            
+
                         end
                         end)
                             end
