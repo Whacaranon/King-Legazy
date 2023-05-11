@@ -4210,7 +4210,6 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                                 EquipWeapon(_G.SelectWeapon)
                                                 TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                             until _G.AutoKaido == false or v.Humanoid.Health <= 0 or game:GetService("Workspace").Monster.Boss:FindFirstChild("Dragon [Lv. 5000]")
-                                            TP(CFrame.new(-5997.81201, 459.904358, 7294.52148, -0.26096487, 0, 0.965348303, 0, 1, 0, -0.965348303, 0, -0.26096487))
                                         end
                                     end
                                 else
@@ -4218,11 +4217,8 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Funct
                                         TP(game:GetService("ReplicatedStorage").MOB:FindFirstChild("Elite Skeleton [Lv. 3100]").HumanoidRootPart.CFrame * MethodFarm)
                                     end
                                 end
-                            
-                                TP(CFrame.new(-5997.81201, 459.904358, 7294.52148, -0.26096487, 0, 0.965348303, 0, 1, 0, -0.965348303, 0, -0.26096487))
-
                             end 
-
+                            
                         end
                         end)
                             end
