@@ -4825,10 +4825,13 @@ end
             while wait() do
                 pcall(function()
                     if _G.AutoFarmDungeon then
-                        if game.Players.LocalPlayer.Character.Humanoid.Health > game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt then 
-                            AutoFarmMobDungeon = true
+                        if game.Players.LocalPlayer.Character.Humanoid.Health > game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * 100 then 
+                                                      _G.AutoSkillRaid = false
+                          AutoFarmMobDungeon = true
                             AutoSaveModeDungeon = false
                         else
+                                                    _G.AutoSkillRaid = true
+
                             AutoFarmMobDungeon = false
                             AutoSaveModeDungeon = true
                         end
@@ -4869,7 +4872,6 @@ end
                 if _G.AutoFarmDungeon and AutoSaveModeDungeon then
                     pcall(function()
                         if game.Players.LocalPlayer.Character.Humanoid.Health <= game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt then                                                     
-                            _G.AutoSkillRaid = false
                             repeat task.wait()
                                 _G.NotEquip = true
                                 if game:GetService("Workspace").Island:FindFirstChild("Arena1") then
@@ -4893,9 +4895,8 @@ end
                                 end   
                                 
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
-                            until game.Players.LocalPlayer.Character.Humanoid.Health == game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * 100 or not AutoSaveModeDungeon or not _G.AutoFarmDungeon
+                            until game.Players.LocalPlayer.Character.Humanoid.Health == game.Players.LocalPlayer.Character.Humanoid.MaxHealth or not AutoSaveModeDungeon or not _G.AutoFarmDungeon
                             _G.NotEquip = false
-                            _G.AutoSkillRaid = true
                             game:GetService("VirtualInputManager"):SendKeyEvent(false,"E",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
                         end
                     end)
