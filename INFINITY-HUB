@@ -1,5 +1,5 @@
 
-setfpscap(60)
+setfpscap(100000)
 if game.PlaceId == 4520749081 or game.PlaceId == 6381829480 or game.PlaceId == 5931540094 or game.PlaceId == 5931540094 then
 end
 local ZenHub = Instance.new("ScreenGui")
@@ -2582,6 +2582,14 @@ local RenUi = Update:AddWindow("Infinity Hub","10039618734",Enum.KeyCode.RightCo
     elseif game.PlaceId == 5931540094 then
        Dungeon_Sea = true
     end
+    
+   
+    
+    
+    
+    
+    
+    
     function CheckQuest()
         QuestTable = {};
         LevelTable = {};
@@ -2934,11 +2942,7 @@ end)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
     end
     
-    game:GetService("Players").LocalPlayer.Idled:connect(function()
-        game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-        wait(1)
-        game:GetService("VirtualUser"):Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
-    end)
+    
     
     function EquipWeapon(ToolSe)
         if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
@@ -2953,13 +2957,7 @@ end)
         game:GetService'VirtualUser':Button1Up(Vector2.new(1,1))
     end
     
-    function StopNoClip(Config)
-        if Config == false then
-            if game:GetService("Workspace"):FindFirstChild("TaiFoot") then
-                game:GetService("Workspace"):FindFirstChild("TaiFoot"):Destroy()
-            end
-        end
-    end
+  
     
     function AutoHaki()
         pcall(function()
@@ -3109,7 +3107,6 @@ mtg.__newindex = newcclosure(function(self,a,b)
 end
 );
 setreadonly(mtg,true);
-
 function WTF(x,y,z)
 	if x and y and z then
 		if not game:GetService("Workspace").AllNPC:FindFirstChild("QuestLvl"..CheckQuest()) then
@@ -3167,6 +3164,7 @@ end)
         _G.AutoFarm = value
         StopNoClip(_G.AutoFarm)
     end)
+    
     
     
     spawn(function()
@@ -4871,6 +4869,7 @@ end
                 if _G.AutoFarmDungeon and AutoSaveModeDungeon then
                     pcall(function()
                         if game.Players.LocalPlayer.Character.Humanoid.Health <= game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt then                                                     
+                            _G.AutoSkillRaid = false
                             repeat task.wait()
                                 _G.NotEquip = true
                                 if game:GetService("Workspace").Island:FindFirstChild("Arena1") then
@@ -4892,9 +4891,11 @@ end
                                         end
                                     end
                                 end   
+                                
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"E",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
-                            until game.Players.LocalPlayer.Character.Humanoid.Health == game.Players.LocalPlayer.Character.Humanoid.MaxHealth or not AutoSaveModeDungeon or not _G.AutoFarmDungeon
+                            until game.Players.LocalPlayer.Character.Humanoid.Health == game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * 100 or not AutoSaveModeDungeon or not _G.AutoFarmDungeon
                             _G.NotEquip = false
+                            _G.AutoSkillRaid = true
                             game:GetService("VirtualInputManager"):SendKeyEvent(false,"E",false,game.Players.LocalPlayer.Character.HumanoidRootPart)
                         end
                     end)
