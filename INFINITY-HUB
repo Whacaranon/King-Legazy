@@ -4775,7 +4775,7 @@ end
     
     Teleport:AddButtonRight("Teleport to Dungeon",function()
         if First_Sea then
-            TP(CFrame.new(6729.3916015625, 103.67321777344, 952.03881835938))
+            TP(CFrame.new(2530.11865, 97.8987427, -1931.47778, -1, 0, 0, 0, 1, 0, 0, 0, -1))
         elseif Second_Sea then
             TP(CFrame.new(-4602.41064, 219.515137, -65.5167236, -0.414307475, 0, 0.910136938, 0, 1, 0, -0.910136938, 0, -0.414307475))
         end
@@ -4858,7 +4858,7 @@ end
                                         UseSkill("V")
                                         
                                         end
-                                    until v.Humanoid.Health <= 0 or not _G.AutoFarmDungeon or not AutoFarmMobDungeon or game.Players.LocalPlayer.Character.Humanoid.Health <= game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt
+                                    until v.Humanoid.Health <= 0 or not _G.AutoFarmDungeon or not AutoFarmMobDungeon or game.Players.LocalPlayer.Character.Humanoid.Health <= game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * 100
                                 end
                             end
                         end
