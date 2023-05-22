@@ -4844,6 +4844,7 @@ end
             while wait() do
                 if _G.AutoFarmDungeon and AutoFarmMobDungeon then
                     pcall(function()
+                    game:GetService("ReplicatedStorage"):WaitForChild("GoldenArenaEvents"):WaitForChild("StartEvent"):FireServer()
                         if game.Players.LocalPlayer.Character.Humanoid.Health > game.Players.LocalPlayer.Character.Humanoid.MaxHealth / 100 * _G.SaveAt + 20 then
                             for i,v in pairs(game:GetService("Workspace").MOB:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") then
